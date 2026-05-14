@@ -1,10 +1,15 @@
 # Project: EMBA Marketing — Final-Exam Study Portal
 
 ## Goal
-Build a unified single-file HTML study portal covering all 7 chapters (3 from midterm + 4 new) for Ahmed's Strategic Marketing **final exam** (Alexandria Univ EMBA, Dr. Alaa Elgharbawy). Ship to `https://amsamms.github.io/emba-marketing-final/`.
+Build a unified single-file HTML study portal covering all 7 chapters (3 from midterm + 4 new) for Ahmed's Strategic Marketing **final exam** (Alexandria Univ EMBA, Dr. Alaa Elgharbawy).
+
+## ✅ SHIPPED 2026-05-14
+Live: https://amsamms.github.io/emba-marketing-final/
+Repo: https://github.com/Amsamms/emba-marketing-final
+Companion (midterm): https://amsamms.github.io/emba-marketing-midterm/
 
 ## Current Status
-**Paused mid-session 2026-05-14 ~18:05 UTC** at user's request. Whisper still running in background. Resume from Phase 3 next session.
+Shipped in one session 2026-05-14. All 7 phases complete.
 
 ## Completed Work
 
