@@ -1,0 +1,16 @@
+venv/
+__pycache__/
+*.pyc
+_chunks/
+transcripts/
+extracted/
+study_notes/
+build_portal.py
+transcribe.py
+transcribe_b.py
+whisper.log
+whisper_b.log
+server.log
+.playwright-mcp/
+*.m4a
+nohup.out
