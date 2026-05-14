@@ -9,7 +9,13 @@ Repo: https://github.com/Amsamms/emba-marketing-final
 Companion (midterm): https://amsamms.github.io/emba-marketing-midterm/
 
 ## Current Status
-Shipped in one session 2026-05-14. All 7 phases complete.
+**Phase 8 — chapter-by-chapter review against original slide decks** (2026-05-14 onward).
+
+Ahmed is reading each PowerPoint deck slide-by-slide and comparing it against the live portal page. Findings are logged in `study_notes/CHAPTER_REVIEW.md`. Workflow: Ahmed flags an issue → we patch the corresponding chapter `.md` → rebuild via `build_portal.py` → commit + push → Pages redeploys in ~30–60s.
+
+Use `CHAPTER_REVIEW.md` as the single source of truth for what's been reviewed, what's been found, and what's been fixed.
+
+All Phases 0–7 are complete. The 7-chapter portal + 97-question Q-bank + 4 cases + mock paper + heat-map are live. Whisper $3.60 spent; NotebookLM cross-check round done (filled 30+ gaps).
 
 ## Completed Work
 
