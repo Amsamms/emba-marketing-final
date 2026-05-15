@@ -16,16 +16,27 @@ Ahmed is reading each PowerPoint deck slide-by-slide and comparing it against th
 
 **Phases 0–7 all complete.** Portal is fully shipped: 7 chapters covered, 640 source citations, 95-Q practice bank, 4 mini-cases, mock 80-mark paper, heat-map, mobile-responsive, dark-mode, search, print stylesheet. Total Whisper cost: $3.60 (under $5 cap).
 
-### Phase 8 progress to date (2026-05-15)
+### Phase 8 progress to date (2026-05-15 — session 3)
 
-**Ch.1b — partial sweep (mission / business-goals area):** 3 findings, 3 fixed. See CHAPTER_REVIEW rows 1–3.
-- Row 1 (clarification, no code change): "marketing goals" vs "why studying strategic marketing" — confirmed distinct concepts, both correctly covered on portal.
-- Row 2 (commits `da8e2ed` → `5839f54` → `9cd0cfe`): Business Goals reframed from one inline parenthetical to dedicated `<h4>` block + 3-row table mirroring deck's s.13–14 two-slide emphasis. Source-strict: first attempt invented Production-Goals measures, caught by Ahmed and reverted to verbatim deck text only.
-- Row 3 (commit `da8e2ed`): Fixed 4 citation pointers for "Sources of environmental opportunities" — was wrongly cited as `[Slide: Basic Concepts s.2]` (the 8 forces slide); corrected to `[Slide: Strategic Marketing Pilot s.16]`.
+**Ch.1b — ✅ COMPLETE** (rows 1–22, last commit `79dc10e`). All 37 slides visually audited and fixed. 22 findings total — key patterns: missing Process labels/anchors, paraphrased Ansoff definitions, invented budget component labels, missing Plan of Action phrasing, SWOT verbatim definitions absent.
 
-**Remaining chapters not yet swept**: Ch.1a · Ch.7 · Ch.8 · Ch.10 · Ch.11 · Ch.14 — all ⏳ pending Ahmed's read.
+**Ch.7 — ✅ COMPLETE** (rows 23–36, last commit `6c23be4`). All 33 slides visually confirmed this session. 14 findings total:
+- §3.0 new: 4 verbatim STP definitions (s.3–4) + Figure 7.1 desc (s.5)
+- §3.1 table: all 4 base defs now verbatim (s.8–12); removed invented "Climate, density" from Geographic def
+- §3.3 B2B: "four" → "ten" variables with full s.14 verbatim list; "Purchasing factors" → "Purchasing Approaches"
+- §3.4 International: "three" → "four" factors; added "Geographic location" as first factor (s.15)
+- §3.5b new: Requirements for Effective Segmentation gets own sub-section with s.17 "To be useful..." framing
+- §3.8 Targeting: Figure 7.2 desc (s.20); verbatim defs for all 4 strategies (s.21–24); Local/Individual marketing defs (s.25–26)
+- §3.9: "Depends on:" verbatim intro + 5-factor list (s.27)
+- §3.10: verbatim deck text quoted for vulnerable segments (s.28)
+- §3.11: Product position def (s.29); Competitive advantage def (s.31); 3-step heading (s.30); bases renamed "X differentiation" per s.32; wrong citations s.41-43/s.50 → s.30/s.32/s.33 fixed
 
-**Remainder of Ch.1b not yet swept**: SWOT / Distinctive Competency / Success Requirements / Ansoff / 4Ps overview / Budgeting / Marketing Audit.
+**🚨 NEW AUDIT RULE (confirmed by Ahmed 2026-05-15)**: Every chapter must begin with fresh visual read of ALL slide PNGs in that session — never rely on summaries or extracted text. See `memory/feedback_visual_slide_audit.md`.
+
+**Remaining chapters not yet swept**: Ch.8 · Ch.10 · Ch.11 · Ch.14 · Ch.1a — all ⏳ pending.
+
+## Next Step
+**Ch.8 Product (33 slides)** — next session. PNG files already in `Final preparation/portal/extracted/ch08_slides/` (verify) or generate from `chapters taken after midterm/product_PPT_C08.ppt`. Read ALL 33 slide PNGs visually before making any fixes.
 
 ## Completed Work (high level — phase-by-phase)
 
