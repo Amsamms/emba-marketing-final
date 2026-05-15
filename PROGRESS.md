@@ -94,7 +94,7 @@ Ahmed is reading each PowerPoint deck slide-by-slide and comparing it against th
 
 ### 🚨 CRITICAL — top priority for next session (locked by Ahmed 2026-05-15)
 
-**Full visual slide-by-slide audit of the 5 remaining chapters: Ch.7, Ch.8, Ch.10, Ch.11, Ch.14** (i.e. everything EXCEPT Ch.1a and Ch.1b, which Ahmed has already partially reviewed in this session).
+**Full visual slide-by-slide audit of ALL 7 chapters: Ch.1a, Ch.1b, Ch.7, Ch.8, Ch.10, Ch.11, Ch.14.** Ahmed's 2026-05-15 partial review of Ch.1b's mission/business-goals area surfaced 4 violations in just one sub-section — the rest of Ch.1b plus the entirety of Ch.1a need the same systematic treatment, not just an Ahmed eyeball pass.
 
 **Two-part audit per chapter — both parts mandatory for every slide of every deck:**
 
@@ -113,22 +113,23 @@ Ahmed is reading each PowerPoint deck slide-by-slide and comparing it against th
 
 **Output**: For each chapter, populate CHAPTER_REVIEW.md with one row per finding. Both audits feed the same row table (use the "Slide / location" column to identify Part-A vs Part-B findings — Part A = "Slide N (visual emphasis)", Part B = "Invented label: '<term>'").
 
-**Chapters in priority order** (worst-risk first, since Ch.8/10/11/14 were built from scratch in this project while Ch.7 carried over from the midterm portal where Ahmed already vetted some content):
-1. Ch.8 Product (33 slides — biggest deck, biggest invention risk)
-2. Ch.10 Pricing (27 slides)
-3. Ch.11 Promotion (28 slides)
-4. Ch.14 Place (21 slides)
-5. Ch.7 STP (lower priority — partially Ahmed-vetted via midterm portal, but still audit)
+**Chapters in priority order** (worst-risk first — Ch.8/10/11/14 were built from scratch in this project so they have highest invention risk; Ch.1a/1b/7 carried over from the midterm portal but the 2026-05-15 partial review of Ch.1b alone surfaced 4 violations, so the carried-over chapters are NOT safe to skip):
 
-**Estimated workload**: ~109 new slides + 22 Ch.7 slides = 131 slide visual reads. At ~30s per slide for visual measurement + ~1 min per chapter for grep audit, plus patch authoring time for findings = likely 3–4 hours of focused work, spread over 1–2 sessions.
+1. Ch.8 Product — 33 slides (largest deck, biggest invention risk)
+2. Ch.10 Pricing — 27 slides
+3. Ch.11 Promotion — 28 slides
+4. Ch.14 Place — 21 slides
+5. Ch.1b Strategic Marketing Mgmt — ~35 slides (Basic Concepts s.2–3 + Strategic Pilot s.5–37). Ahmed's 2026-05-15 partial covered only the mission → business-goals span (rows #1–4 in CHAPTER_REVIEW). Remainder = SWOT, Distinctive Competency, Success Requirements, Ansoff, 4Ps overview, Budgeting, Marketing Audit, sources of environmental opportunities deep-dive.
+6. Ch.1a Marketing Orientations — ~12 slides (Basic Concepts s.1 + Kotler Ch.1 s.1–12)
+7. Ch.7 STP — 22 slides (midterm-vetted but still audit)
 
-**Why this is critical**: this session found 4 source-strict violations across just the mission/business-goals area of Ch.1b alone (rows #1–4 in CHAPTER_REVIEW). The 5 unaudited chapters likely contain a similar density of invented labels and emphasis-asymmetries. Pre-exam audit is the last line of defense before Ahmed sits the paper.
+**Estimated workload**: ~178 slide visual reads (33+27+28+21+35+12+22). At ~30s/slide for visual measurement + ~2 min/chapter for grep audit + patch authoring per finding = likely 5–6 hours of focused work, spread over 2–3 sessions.
+
+**Why this is critical**: this session found 4 source-strict violations in just the mission/business-goals area of Ch.1b alone (rows #1–4 in CHAPTER_REVIEW). The other 6 chapters likely contain similar-density issues. Pre-exam audit is the last line of defense before Ahmed sits the paper.
 
 ### Remaining lower-priority steps
 
-1. **Finish Ch.1b sweep** — Ahmed continues reading from SWOT onwards (Distinctive Competency, Success Requirements, Ansoff, 4Ps overview, Budgeting, Marketing Audit). Findings appended to CHAPTER_REVIEW row #5+.
-2. **Sweep Ch.1a** — Kotler Ch.1 deck (Basic Concepts s.1 + Kotler slides 1–12).
-3. **Final-pass calibration check** — after all 7 chapters swept, regenerate citation counts and re-run a Q-bank coverage audit per chapter.
+1. **Final-pass calibration check** — after all 7 chapters swept, regenerate citation counts and re-run a Q-bank coverage audit per chapter.
 
 ## Key Context
 
