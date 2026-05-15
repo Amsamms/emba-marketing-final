@@ -94,7 +94,9 @@ Ahmed is reading each PowerPoint deck slide-by-slide and comparing it against th
 
 ### 🚨 CRITICAL — top priority for next session (locked by Ahmed 2026-05-15)
 
-**Full visual slide-by-slide audit of ALL 7 chapters: Ch.1a, Ch.1b, Ch.7, Ch.8, Ch.10, Ch.11, Ch.14.** Ahmed's 2026-05-15 partial review of Ch.1b's mission/business-goals area surfaced 4 violations in just one sub-section — the rest of Ch.1b plus the entirety of Ch.1a need the same systematic treatment, not just an Ahmed eyeball pass.
+**Full visual slide-by-slide audit of ALL 7 chapters: Ch.1a, Ch.1b, Ch.7, Ch.8, Ch.10, Ch.11, Ch.14.** Ahmed's 2026-05-15 partial review of Ch.1b's mission/business-goals area surfaced 5 violations in just one sub-section (rows #1–5 in CHAPTER_REVIEW) — including the canonical example added 2026-05-15 evening: deck slide 7 lists "**Processes in Strategic Marketing Management**" with 5 gerund-form items, Process 4 = "**Budgeting marketing, financial, and production resources**", but the portal had compressed it to imperative paraphrases and dropped the 3 resource categories. That kind of finding — Part-A (heading/list deviation from deck wording) + Part-B (silently-dropped key terms like the Production/Financial/Marketing trio) — is exactly what the systematic audit must catch on every slide.
+
+**⚠️ WORKFLOW — chapter by chapter, not all 7 at once** (locked by Ahmed 2026-05-15): Do ONE chapter per session. Within that chapter, audit every slide of every relevant deck, log findings as rows in CHAPTER_REVIEW.md, propose fixes, get Ahmed's sign-off per finding, apply, commit + push, mark 🟢. Only when that chapter is fully closed (all rows 🟢 or ⚪) do we move to the next chapter. Do NOT batch multiple chapters into a single audit pass — Ahmed wants to review and approve findings chapter-at-a-time before scope expands.
 
 **Two-part audit per chapter — both parts mandatory for every slide of every deck:**
 
@@ -113,19 +115,27 @@ Ahmed is reading each PowerPoint deck slide-by-slide and comparing it against th
 
 **Output**: For each chapter, populate CHAPTER_REVIEW.md with one row per finding. Both audits feed the same row table (use the "Slide / location" column to identify Part-A vs Part-B findings — Part A = "Slide N (visual emphasis)", Part B = "Invented label: '<term>'").
 
-**Chapters in priority order** (worst-risk first — Ch.8/10/11/14 were built from scratch in this project so they have highest invention risk; Ch.1a/1b/7 carried over from the midterm portal but the 2026-05-15 partial review of Ch.1b alone surfaced 4 violations, so the carried-over chapters are NOT safe to skip):
+**Chapters in priority order — one per session** (worst-risk first; Ch.8/10/11/14 were built from scratch in this project so they have highest invention risk; Ch.1a/1b/7 carried over from the midterm portal but the 2026-05-15 partial review of Ch.1b alone surfaced 5 violations, so carried-over chapters are NOT safe to skip):
 
-1. Ch.8 Product — 33 slides (largest deck, biggest invention risk)
-2. Ch.10 Pricing — 27 slides
-3. Ch.11 Promotion — 28 slides
-4. Ch.14 Place — 21 slides
-5. Ch.1b Strategic Marketing Mgmt — ~35 slides (Basic Concepts s.2–3 + Strategic Pilot s.5–37). Ahmed's 2026-05-15 partial covered only the mission → business-goals span (rows #1–4 in CHAPTER_REVIEW). Remainder = SWOT, Distinctive Competency, Success Requirements, Ansoff, 4Ps overview, Budgeting, Marketing Audit, sources of environmental opportunities deep-dive.
-6. Ch.1a Marketing Orientations — ~12 slides (Basic Concepts s.1 + Kotler Ch.1 s.1–12)
-7. Ch.7 STP — 22 slides (midterm-vetted but still audit)
+1. **Session N+1 = Ch.8 Product** — 33 slides (largest deck, biggest invention risk)
+2. **Session N+2 = Ch.10 Pricing** — 27 slides
+3. **Session N+3 = Ch.11 Promotion** — 28 slides
+4. **Session N+4 = Ch.14 Place** — 21 slides
+5. **Session N+5 = Ch.1b Strategic Marketing Mgmt remainder** — Strategic Pilot s.5–37 minus what's already done (s.7 5-processes, s.8–14 mission/business-goals span are 🟢). Remainder = s.15–22 SWOT / Distinctive Competency / Success Requirements / Sources of env-opp deep-dive, s.23–32 Ansoff + 4Ps overview, s.33–34 Budgeting, s.35–37 Reformulation + Marketing Audit + drafting the marketing plan.
+6. **Session N+6 = Ch.1a Marketing Orientations** — ~12 slides (Basic Concepts s.1 + Kotler Ch.1 s.1–12)
+7. **Session N+7 = Ch.7 STP** — 22 slides (midterm-vetted but still audit)
 
-**Estimated workload**: ~178 slide visual reads (33+27+28+21+35+12+22). At ~30s/slide for visual measurement + ~2 min/chapter for grep audit + patch authoring per finding = likely 5–6 hours of focused work, spread over 2–3 sessions.
+**Each session's deliverable**: that one chapter's CHAPTER_REVIEW rows all marked 🟢 or ⚪, with commit hashes. Do not start session N+2 until session N+1's chapter is fully closed.
 
-**Why this is critical**: this session found 4 source-strict violations in just the mission/business-goals area of Ch.1b alone (rows #1–4 in CHAPTER_REVIEW). The other 6 chapters likely contain similar-density issues. Pre-exam audit is the last line of defense before Ahmed sits the paper.
+**Estimated workload**: ~178 slide visual reads (33+27+28+21+35+12+22) spread across **7 sessions** (one chapter per session). Each session ≈ 30–90 min depending on chapter size + finding density.
+
+**Why this is critical**: this session found 5 source-strict violations in just the mission/business-goals area of Ch.1b alone (rows #1–5 in CHAPTER_REVIEW). The other 6 chapters likely contain similar-density issues. Pre-exam audit is the last line of defense before Ahmed sits the paper.
+
+**Canonical example of what each chapter's audit should catch** (row #5, this session's evening discovery):
+- **Part-A finding (visual emphasis)**: Deck slide 7 dedicates a whole slide to "**Processes in Strategic Marketing Management**" with 5 numbered gerund-form items, then slides 8 / 15 / 23 / 33 / 35 each give a dedicated "Process One / Two / Three / Four / Five" anchor slide. Portal had only a single inline "5 processes themselves" list with imperative paraphrases — losing both the deck's verbatim phrasing AND the per-process anchored emphasis.
+- **Part-B finding (silently dropped terms)**: Deck Process 4 says "**Budgeting marketing, financial, and production resources**" — names 3 specific resource categories that mirror the Business Goals slide's Production/Financial/Marketing trio. Portal compressed to "Budget the resources" — those 3 critical category names dropped.
+- **Fix pattern**: add a deck-verbatim list labelled `[Slide: Strategic Marketing Pilot s.7]` ABOVE the plain-language list. Both versions coexist, deck wording clearly marked as exam-safe. Per-process slide-citation badges (`[Slide s.8 — Process One]` etc.) restored.
+- Each chapter audit should look for: (a) deck-section headings the portal renamed; (b) numbered/bulleted lists the portal compressed or re-ordered; (c) specific terms / category names / verb forms the portal silently changed.
 
 ### Remaining lower-priority steps
 
