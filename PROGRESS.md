@@ -92,11 +92,43 @@ Ahmed is reading each PowerPoint deck slide-by-slide and comparing it against th
 
 ## Next Steps
 
-1. **Continue Ch.1b sweep** — Ahmed reads remaining slides of Strategic Marketing Pilot deck (SWOT, Distinctive Competency, Success Requirements, Ansoff, 4Ps overview, Budgeting, Marketing Audit). Each finding logged in CHAPTER_REVIEW with row #4+.
-2. **Sweep Ch.1a** — Kotler Ch.1 deck (Basic Concepts s.1 + Kotler slides 1–12): definitions, orientations, value, market offering.
-3. **Sweep Ch.7** — Kotler Ch.7 deck (STP).
-4. **Sweep Ch.8 / 10 / 11 / 14** — the 4 post-midterm chapters with the deepest content. These are where the most undiscovered gaps likely live since they were built from scratch in this project (whereas Ch.1a/1b/7 carried over from the midterm portal where Ahmed already vetted them).
-5. **Final-pass calibration check** — after all 7 chapters swept, regenerate citation counts and re-run a Q-bank coverage audit per chapter.
+### 🚨 CRITICAL — top priority for next session (locked by Ahmed 2026-05-15)
+
+**Full visual slide-by-slide audit of the 5 remaining chapters: Ch.7, Ch.8, Ch.10, Ch.11, Ch.14** (i.e. everything EXCEPT Ch.1a and Ch.1b, which Ahmed has already partially reviewed in this session).
+
+**Two-part audit per chapter — both parts mandatory for every slide of every deck:**
+
+**Part A — Emphasis-match audit (visual):**
+- Open each slide PNG in `portal/extracted/ch{NN}/slide-NN.png` (Ch.7 PNGs live in midterm-portal extracted dir; Ch.8/10/11/14 are in this portal's `extracted/`).
+- For each slide measure visually: what does the slide emphasise (a single headline concept, a numbered list, a 2×2 grid, a labelled diagram, a bold/coloured term)?
+- Compare against the **live portal page** for that chapter: is the same concept given equivalent weight (dedicated heading + framed block) or is it compressed to inline parenthetical / dropped entirely?
+- Flag mismatches: "Slide N emphasises X (full-slide / bold / numbered) — portal mentions X inline only" or "Slide N gives 30% of pixel area to X — portal has no anchor for X."
+- This is the same pattern that caught the **Business Goals umbrella** (Ch.1b row #2): deck dedicated 2 slides → portal had 1 inline parenthetical. Visual measurement is the only way to catch this — text-only LLM mining doesn't see slide layout / emphasis.
+
+**Part B — Source-strict claude-invention audit:**
+- For every category label, umbrella term, and definition in the portal's coverage of that chapter, verify it exists in the deck text (`extracted/{NN}.txt`) OR in lecture transcripts (`transcripts/Lec_{N}.md`).
+- Use the **double-grep technique** that caught "environmental forces": `grep -i "<term>" extracted/*.txt transcripts/*.md` — zero hits means I invented it.
+- Flag every invented term, even if pedagogically convenient. Per the source-strict feedback memory: Dr. Alaa recycles deck wording near-verbatim, so a Claude-invented label can be the exact word that costs Ahmed points.
+- Known invention patterns to watch for: collective umbrella nouns ("the 8 X forces" / "the 5 X strategies" / "the 3 X levers"), category labels in tables, performance-type framings ("firm performance vs market performance"), "Typical measures" / "Typical examples" columns enriched beyond the slide.
+
+**Output**: For each chapter, populate CHAPTER_REVIEW.md with one row per finding. Both audits feed the same row table (use the "Slide / location" column to identify Part-A vs Part-B findings — Part A = "Slide N (visual emphasis)", Part B = "Invented label: '<term>'").
+
+**Chapters in priority order** (worst-risk first, since Ch.8/10/11/14 were built from scratch in this project while Ch.7 carried over from the midterm portal where Ahmed already vetted some content):
+1. Ch.8 Product (33 slides — biggest deck, biggest invention risk)
+2. Ch.10 Pricing (27 slides)
+3. Ch.11 Promotion (28 slides)
+4. Ch.14 Place (21 slides)
+5. Ch.7 STP (lower priority — partially Ahmed-vetted via midterm portal, but still audit)
+
+**Estimated workload**: ~109 new slides + 22 Ch.7 slides = 131 slide visual reads. At ~30s per slide for visual measurement + ~1 min per chapter for grep audit, plus patch authoring time for findings = likely 3–4 hours of focused work, spread over 1–2 sessions.
+
+**Why this is critical**: this session found 4 source-strict violations across just the mission/business-goals area of Ch.1b alone (rows #1–4 in CHAPTER_REVIEW). The 5 unaudited chapters likely contain a similar density of invented labels and emphasis-asymmetries. Pre-exam audit is the last line of defense before Ahmed sits the paper.
+
+### Remaining lower-priority steps
+
+1. **Finish Ch.1b sweep** — Ahmed continues reading from SWOT onwards (Distinctive Competency, Success Requirements, Ansoff, 4Ps overview, Budgeting, Marketing Audit). Findings appended to CHAPTER_REVIEW row #5+.
+2. **Sweep Ch.1a** — Kotler Ch.1 deck (Basic Concepts s.1 + Kotler slides 1–12).
+3. **Final-pass calibration check** — after all 7 chapters swept, regenerate citation counts and re-run a Q-bank coverage audit per chapter.
 
 ## Key Context
 
