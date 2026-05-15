@@ -31,12 +31,30 @@ Ahmed is reading each PowerPoint deck slide-by-slide and comparing it against th
 - §3.10: verbatim deck text quoted for vulnerable segments (s.28)
 - §3.11: Product position def (s.29); Competitive advantage def (s.31); 3-step heading (s.30); bases renamed "X differentiation" per s.32; wrong citations s.41-43/s.50 → s.30/s.32/s.33 fixed
 
+**Ch.10 — ✅ COMPLETE** (rows 37–45, last commit `9d584e5`). All 27 slides visually audited and fixed. 9 findings.
+
+**Ch.11 — ✅ COMPLETE** (rows 46–54, last commit `7902ceb`). All 28 slides visually audited + Part-B invention grep run. 9 findings.
+
+**Ch.14 — ✅ COMPLETE** (rows 55–66, last commit `3225604`). All 21 slides visually read fresh this session (Part A + Part B). 12 findings total — key patterns:
+- Wrong deck filename in coverage note (`product_PPT_C14` → `place_PPT_C14.ppt`); missing 12.8 Retailer Marketing Decisions from section list.
+- Slide-1 title page incorrectly cited as content.
+- Supply/demand chain definitions replaced Claude paraphrase ("producer/customer in the centre") with Slide-5 verbatim.
+- Value delivery network clause "not just their own profit" was Claude invention; replaced with Slide-6 verbatim.
+- Administered VMS: silent "a few" → "one" quantifier change + invented "brand pull/volume" restored to slide verbatim.
+- H/V conflict textbook definitions flagged as not-on-slide.
+- Contractual VMS franchise sub-form examples (Ford/Coca-Cola/McDonald's) flagged as textbook-standard not on Slide 17.
+- Channel-1/3 diagram examples flagged as not-on-slide.
+- "Direct sales force" → "sales force" per Slide 21 label.
+- F10 Whisper anchors: contact-reduction (Lec_6 @ 29:37), Almarai Saudi setting (59:11), brand-power (1:00:30), Diina Farms (1:06:10) all replaced with real timestamps + verbatim Arabic.
+
 **🚨 NEW AUDIT RULE (confirmed by Ahmed 2026-05-15)**: Every chapter must begin with fresh visual read of ALL slide PNGs in that session — never rely on summaries or extracted text. See `memory/feedback_visual_slide_audit.md`.
 
-**Remaining chapters not yet swept**: Ch.8 · Ch.10 · Ch.11 · Ch.14 · Ch.1a — all ⏳ pending.
+**Ch.8 — ✅ COMPLETE** (rows 67–78). All 33 slides visually audited fresh. 12 findings — patterns: invented BlackBerry Actual/Augmented breakdown on Slide 4; invented industrial-product examples (Steel coils, machinery, lubricants) under [Slide 12]; missing Slide-17 umbrella "Product quality includes level and consistency" + "a" vs "the" targeted level; brand-equity citation [Slides 20, 25] lumping two slightly different wordings; "Packaging involves" prefix dropped on Slide 21; invented stretching definitions (Slide 23) and mix-dimension definitions (Slide 24); invented examples + silent "easy → easily" correction on Slide-27 desirable qualities; Slide-29 callout answer key invented (Camry/Prius/Scion); Slide-32 service-industry examples invented; Slide-33 Figure 8.5 callout truncated to first sentence; multiple NotebookLM citations replaced with real Whisper anchors (Hotel-shampoo Lec_4_1 @ 08:54-09:36; Abu Shaka Lec_4_B @ 1:50:50; Netflix Lec_4_2 @ 10:33; Defacto Lec_4_2 @ 13:36; MBA Business-Language flagged as NotebookLM-only paraphrase with no verbatim Whisper hit).
+
+**Remaining chapters not yet swept**: Ch.1a — ⏳ pending.
 
 ## Next Step
-**Ch.8 Product (33 slides)** — next session. PNG files already in `Final preparation/portal/extracted/ch08_slides/` (verify) or generate from `chapters taken after midterm/product_PPT_C08.ppt`. Read ALL 33 slide PNGs visually before making any fixes.
+**Ch.1a Marketing Orientations** — next session. ~12 slides (Basic Concepts s.1 + Kotler Ch.1 s.1–12). Read ALL slide PNGs visually before making any fixes.
 
 ## Completed Work (high level — phase-by-phase)
 
