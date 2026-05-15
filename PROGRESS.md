@@ -4,117 +4,106 @@
 Build a unified single-file HTML study portal covering all 7 chapters (3 from midterm + 4 new) for Ahmed's Strategic Marketing **final exam** (Alexandria Univ EMBA, Dr. Alaa Elgharbawy).
 
 ## ✅ SHIPPED 2026-05-14
-Live: https://amsamms.github.io/emba-marketing-final/
-Repo: https://github.com/Amsamms/emba-marketing-final
-Companion (midterm): https://amsamms.github.io/emba-marketing-midterm/
+- **Live**: https://amsamms.github.io/emba-marketing-final/
+- **Repo**: https://github.com/Amsamms/emba-marketing-final
+- **Companion (midterm)**: https://amsamms.github.io/emba-marketing-midterm/
 
 ## Current Status
-**Phase 8 — chapter-by-chapter review against original slide decks** (2026-05-14 onward).
 
-Ahmed is reading each PowerPoint deck slide-by-slide and comparing it against the live portal page. Findings are logged in `study_notes/CHAPTER_REVIEW.md`. Workflow: Ahmed flags an issue → we patch the corresponding chapter `.md` → rebuild via `build_portal.py` → commit + push → Pages redeploys in ~30–60s.
+**Phase 8 — chapter-by-chapter slide-vs-portal review** (opened 2026-05-14, ongoing).
 
-Use `CHAPTER_REVIEW.md` as the single source of truth for what's been reviewed, what's been found, and what's been fixed.
+Ahmed is reading each PowerPoint deck slide-by-slide and comparing it against the live portal. Findings are logged in `study_notes/CHAPTER_REVIEW.md` (the single source of truth for what's been reviewed, found, and fixed). Workflow per finding: Ahmed flags → I check source `.md` / `index.html` → propose patch → `Edit` → `git commit` → `git push` → GH Pages redeploys in ~30–60s → mark row 🟢 in CHAPTER_REVIEW with commit hash.
 
-All Phases 0–7 are complete. The 7-chapter portal + 97-question Q-bank + 4 cases + mock paper + heat-map are live. Whisper $3.60 spent; NotebookLM cross-check round done (filled 30+ gaps).
+**Phases 0–7 all complete.** Portal is fully shipped: 7 chapters covered, 640 source citations, 95-Q practice bank, 4 mini-cases, mock 80-mark paper, heat-map, mobile-responsive, dark-mode, search, print stylesheet. Total Whisper cost: $3.60 (under $5 cap).
 
-## Completed Work
+### Phase 8 progress to date (2026-05-15)
+
+**Ch.1b — partial sweep (mission / business-goals area):** 3 findings, 3 fixed. See CHAPTER_REVIEW rows 1–3.
+- Row 1 (clarification, no code change): "marketing goals" vs "why studying strategic marketing" — confirmed distinct concepts, both correctly covered on portal.
+- Row 2 (commits `da8e2ed` → `5839f54` → `9cd0cfe`): Business Goals reframed from one inline parenthetical to dedicated `<h4>` block + 3-row table mirroring deck's s.13–14 two-slide emphasis. Source-strict: first attempt invented Production-Goals measures, caught by Ahmed and reverted to verbatim deck text only.
+- Row 3 (commit `da8e2ed`): Fixed 4 citation pointers for "Sources of environmental opportunities" — was wrongly cited as `[Slide: Basic Concepts s.2]` (the 8 forces slide); corrected to `[Slide: Strategic Marketing Pilot s.16]`.
+
+**Remaining chapters not yet swept**: Ch.1a · Ch.7 · Ch.8 · Ch.10 · Ch.11 · Ch.14 — all ⏳ pending Ahmed's read.
+
+**Remainder of Ch.1b not yet swept**: SWOT / Distinctive Competency / Success Requirements / Ansoff / 4Ps overview / Budgeting / Marketing Audit.
+
+## Completed Work (high level — phase-by-phase)
 
 ### Phase 0 — Calibration (DONE)
 - Visual-read both pages of actual midterm in `midterm_preparation/actual_exam/`
-- Cross-referenced all 23 actual questions against midterm portal's predicted bank
+- Cross-referenced all 23 actual midterm questions against midterm portal's predicted bank
 - **Result: 100% topic coverage, 87% verbatim (20/23 hit word-for-word, 3 partial)**
 - Full report: `study_notes/CALIBRATION.md`
 - **Key insight for the final**: Dr. Alaa recycles Kotler/Kerin publisher test banks almost verbatim. Apply same recipe + heavy 4Ps weighting + adapted cases.
 
-### Phase 1 — Whisper transcription (PARTIAL — two passes running in background)
-- Script: `transcribe.py` (source A) + `transcribe_b.py` (source B wrapper, monkey-patches VOICES dir)
-- venv: `portal/venv/` with `openai==2.36.0` installed
-
-**Source A** — original recordings:
-- 4 audio files in `Final preparation/Lecture voice of dr alaa/Lec.*.m4a` (Lec 4 split into part-1 + part-2 audio files of same lecture; Lec 5; Lec 6), 299.2 min total, est $1.79
-- Status: Lec_4_1, Lec_4_2, Lec_5 saved; Lec_6 on chunk 3/9 at pause time
-- PID 9023, log `whisper.log`
-
-**Source B** — `Marketing.zip` (second recording of same 3 lectures, often longer/more complete):
-- Unzipped to `Final preparation/Lecture voice of dr alaa/audio_src_b/`
-- Lec 4's 3 tracks (Track-109/108/107) ffmpeg-concatenated chronologically into `Lec_4_B.m4a` (131 min)
-- `Lec_5_B.m4a` = Track-110 (88 min), `Lec_6_B.m4a` = Track-111 (82 min)
-- Total 301 min, est $1.81
-- PID 19660 — wrapper that polls PID 9023, then runs `transcribe_b.py` after source A finishes
-- Log `whisper_b.log` (won't have content until source A done)
-
-**Combined est cost: ~$3.60** (still under $5 cap).
-
-Resume check:
-```bash
-tail whisper.log whisper_b.log
-ls transcripts/    # expect 6 files when both done: Lec_4_1, Lec_4_2, Lec_5, Lec_6, Lec_4_B, Lec_5_B, Lec_6_B
-```
+### Phase 1 — Whisper transcription (DONE)
+- Script: `transcribe.py` (source A) + `transcribe_b.py` (source B wrapper)
+- venv: `portal/venv/` with `openai==2.36.0`
+- **Source A** (4 original recordings): Lec_4_1 + Lec_4_2 (same Lec 4, split audio), Lec_5, Lec_6. 299.2 min, ~$1.79.
+- **Source B** (`Marketing.zip` re-recordings): Lec_4_B (131 min, 3-track ffmpeg concat), Lec_5_B (88 min), Lec_6_B (82 min). 301 min, ~$1.81.
+- **Combined: $3.60 total** (well under $5 cap).
+- Transcripts saved to `transcripts/Lec_*.md` with `[mm:ss]` timestamps.
 
 ### Phase 2 — Slide extraction (DONE)
-- 4 .ppt → .pptx (via `soffice --headless`) + per-slide PNG (via `pdftoppm`)
+- 4 `.ppt` → `.pptx` (via `soffice --headless`) + per-slide PNGs (via `pdftoppm`)
 - Slide text extracted via `python-pptx` to `extracted/ch{08,10,11,14}.txt`
-- **109 new slides total**:
-  - Ch8 Product: 33 slides
-  - Ch10 Pricing: 27 slides
-  - Ch11 Promotion: 28 slides
-  - Ch14 Place: 21 slides
+- **109 new slides total**: Ch.8 Product 33 · Ch.10 Pricing 27 · Ch.11 Promotion 28 · Ch.14 Place 21
 
-## In-Progress Work
-(none — Phases 0-6 complete; Phase 7 ships next)
+### Phase 3 — Concept mining + slide-by-slide audit (DONE)
+- LLM pass over `transcripts/Lec_{4_1,4_2,5,6}.md` → mined concepts, Arabic quotes, `[Lec N @ mm:ss]` anchors
+- Lecture-to-chapter mapping confirmed: Lec 4 = Ch.8 + Ch.10 intro · Lec 5 = Ch.10 + Ch.11 · Lec 6 = Ch.11 + Ch.14
+- Visual slide-by-slide audit using Opus 4.7 image reading of `extracted/ch{NN}/slide-NN.png`
+- Exam signals mined to `study_notes/EXAM_SIGNAL.md`
 
-## Final stats (after Phase 6)
-- `index.html`: 4,778 lines, 254KB → 395KB
-- **640 source citations** (394 Slide + 246 Lec)
-- ~2,200 lines of teaching notes in `study_notes/`
+### Phase 4 — Re-audit existing 3 chapters (DONE)
+- Pulled §1–§11 from `midterm_preparation/index.html`
+- Audited content captured in `study_notes/existing_3ch_audited.md` (Ch.1a / Ch.1b / Ch.7)
+
+### Phase 5 — Portal scaffold (DONE)
+- `index.html` built from `midterm_preparation/portal_template.html` via `build_portal.py`
+- Top bar: Home / Chapters ▾ (7 dropdown) / Exam / Cheat-sheet
+- URL hash routing (`#ch1a`, `#ch1b`, `#ch7`, `#ch8`, `#ch10`, `#ch11`, `#ch14`)
+- Mobile responsive 720px / 420px, dark-mode toggle, search filter, print stylesheet
+
+### Phase 6 — Exam tab + adapted cases (DONE)
+- Mock 80-mark final mirroring template image
+- Broader practice bank (T/F · MCQ · short · mini-case · essay)
+- Adapted cases: Maersk → Ch.11+Ch.14 · Starbucks → Ch.8+Ch.10 · 2 originals (Vodafone churn, El-Cairo footwear)
+- Heat-map updated with calibration weights
+
+### Phase 7 — Ship (DONE 2026-05-14)
+- Citation grep passed (640 total: 394 Slide + 246 Lec)
+- `gh repo create amsamms/emba-marketing-final --public`
+- Pushed, Pages enabled, live verified
+- Audio + transcripts + raw extracted slides gitignored
+
+### NotebookLM cross-check round (DONE — bonus pass)
+- Cross-checked all 4 new chapters against an independent NotebookLM summary
+- Filled 30+ gaps in chapter notes + EXAM_SIGNAL.md
+- Commit `6aea309` carries this
+
+## Final stats (as of 2026-05-15)
+- `index.html`: ~5,800 lines (after Phase 8 patches; was 4,778 at ship time)
+- **643 source citations** (394 Slide cites including the 4 newly corrected Pilot s.16 refs + 246 Lec + 3 new in business-goals block)
+- ~2,200+ lines of teaching notes across `study_notes/`
 - 95 predicted exam questions + 4 full mini-cases + mock 80-mark exam paper
-- Mobile-responsive at 720/420px, dark-mode toggle, search filter, print-stylesheet
+- Mobile-responsive at 720/420px, dark-mode, search filter, print stylesheet
 - Total Whisper cost: $3.60 of $5 cap
 
-## Next Steps (in order)
+## Next Steps
 
-### When resuming the session:
-1. **Verify both Whisper passes finished** — `transcripts/` should have 7 files: Lec_4_1.md, Lec_4_2.md, Lec_5.md, Lec_6.md (source A) + Lec_4_B.md, Lec_5_B.md, Lec_6_B.md (source B). If incomplete, re-run the relevant script — both skip already-done lectures.
-2. **Merge step (Phase 1c)** — write a small Python tool that interleaves source A + source B per lecture into `Lec_N_final.md`. Strategy: parse both `[mm:ss] text` blocks, sort by timestamp, drop near-duplicates (>80% Jaccard on consecutive entries). Source B will typically have ~40-50 extra min for Lec 4 since 3-track recorder caught more.
-
-2. **Phase 3 — Concept mining + slide-by-slide audit** (`TaskList` shows #4)
-   - For each of Ch8/10/11/14: LLM pass through `transcripts/Lec_{4_1,4_2,5,6}.md` extracting concepts + Arabic quotes + `[Lec N @ mm:ss]` anchors → write `study_notes/TEACHING_NOTES.md`
-   - **Lecture-to-chapter mapping** (3 lectures cover 4 chapters; Lec_4_1 + Lec_4_2 = same Lec 4, just split audio):
-     - Lec 4 (parts 1+2): probably Ch8 Product (largest deck) + maybe start of Ch10
-     - Lec 5: probably Ch10 Pricing and/or Ch11 Promotion
-     - Lec 6: probably Ch11 Promotion remainder + Ch14 Place
-     - Verify by sampling first 5 minutes of each transcript (look for slide titles / "today we'll cover" cues).
-   - Visual slide-by-slide audit using Opus 4.7's image reading — read `extracted/ch{NN}/slide-NN.png` and gap-fill `TEACHING_NOTES.md`
-   - Mine exam signals into `study_notes/EXAM_SIGNAL.md` (look for "this is on the exam", "هذا مهم", "هذا هيجي", etc.)
-
-3. **Phase 4 — Re-audit existing 3 chapters** (`TaskList` #5)
-   - Pull §1–§11 content from `midterm_preparation/index.html` (lines 250–847)
-   - Cross-check vs `CALIBRATION.md`; expand under-covered, mark over-covered
-
-4. **Phase 5 — Portal scaffold** (`TaskList` #6)
-   - Build `index.html` from `midterm_preparation/portal_template.html`
-   - Top bar: Home / Chapters ▾ (dropdown of 7) / Exam / Cheat-sheet
-   - URL hash routing (#ch8, #ch10, etc.)
-   - Mobile responsive 720/420
-   - **Chunked authoring** — placeholder markers + progressive Edits, NEVER mega-Write
-
-5. **Phase 6 — Exam tab + adapted cases** (`TaskList` #7)
-   - 6.1 Mock final mirroring template image (3 Qs)
-   - 6.2 Broader Q bank (T/F 40, MCQ 30, short 15, mini-case 5, essay 10)
-   - 6.3 Adapt Maersk → Ch11+Ch14, Starbucks → Ch8+Ch10, 2 originals
-   - 6.4 21-row heat-map updated with calibration weights
-
-6. **Phase 7 — Ship** (`TaskList` #8)
-   - Citation grep ≥150 lec + ≥120 slide cites
-   - `gh repo create amsamms/emba-marketing-final --public`
-   - Push, enable Pages, verify live URL
-   - Audio + transcripts + extracted slides gitignored
+1. **Continue Ch.1b sweep** — Ahmed reads remaining slides of Strategic Marketing Pilot deck (SWOT, Distinctive Competency, Success Requirements, Ansoff, 4Ps overview, Budgeting, Marketing Audit). Each finding logged in CHAPTER_REVIEW with row #4+.
+2. **Sweep Ch.1a** — Kotler Ch.1 deck (Basic Concepts s.1 + Kotler slides 1–12): definitions, orientations, value, market offering.
+3. **Sweep Ch.7** — Kotler Ch.7 deck (STP).
+4. **Sweep Ch.8 / 10 / 11 / 14** — the 4 post-midterm chapters with the deepest content. These are where the most undiscovered gaps likely live since they were built from scratch in this project (whereas Ch.1a/1b/7 carried over from the midterm portal where Ahmed already vetted them).
+5. **Final-pass calibration check** — after all 7 chapters swept, regenerate citation counts and re-run a Q-bank coverage audit per chapter.
 
 ## Key Context
 
 ### Critical files
 - **Plan**: `/home/amsamms/.claude/plans/the-midterm-actual-exam-kind-manatee.md`
-- **Calibration brief**: `study_notes/CALIBRATION.md` (read this BEFORE any predicted exam authoring)
+- **Live audit log**: `study_notes/CHAPTER_REVIEW.md` (THE source of truth for Phase 8 — read first when resuming)
+- **Calibration brief**: `study_notes/CALIBRATION.md`
 - **Source assets** (gitignored on publish):
   - Audio: `Final preparation/Lecture voice of dr alaa/Lec.*.m4a`
   - Slides: `Final preparation/chapters taken after midterm/*.ppt` + `portal/extracted/`
@@ -128,22 +117,25 @@ ls transcripts/    # expect 6 files when both done: Lec_4_1, Lec_4_2, Lec_5, Lec
 - Source-strict citations: every claim cites `[Slide N]` or `[Lec N @ mm:ss]`
 - Mobile breakpoints at 720px and 420px
 
-### Gotchas
+### Phase-8 workflow gotchas (added 2026-05-15)
+- **Edit `index.html` directly** for content already in the live portal — `build_portal.py` is a one-shot scaffolder and re-running it would clobber the in-place edits. Only re-run `build_portal.py` if you're regenerating from scratch.
+- **Source-strict rule applies to ALL Phase-8 patches** (per `feedback_source_strict` memory) — when adding a table or block, the verbatim deck wording must be quoted in the cell; do NOT invent measures, labels, or examples. If embellishment is wanted, mark it as "Exam tip" outside the table and don't pretend it's from the slide. (Caught in row #2 of CHAPTER_REVIEW — invented Production-Goals measures.)
+- **Heading levels matter** — when adding a sub-section inside an existing §N.M block, use `<h4>` not `<h3>`. Adding `<h3>` creates a duplicate numbered peer in the nav (caught when first version had two `2.2` headings).
+- **GH Pages deploy lag** — push triggers Pages build; first build is `queued`, may take 30–90s; sometimes a stale build fails (e.g., commit `da8e2ed` triggered a failed build that emailed Ahmed) but the next successful build supersedes it. Always verify via `gh run list --repo Amsamms/emba-marketing-final` and `curl -s https://amsamms.github.io/emba-marketing-final/ | grep <new-anchor-id>` before declaring done.
+- **Citation audit pattern** — when fixing a citation, `grep -n "<wrong-cite>"` in `index.html` first to find ALL occurrences (concept body + exam-signal list + Q-bank q-source + Q-bank answer-cites footer). The Q-bank citations live in 2 places per question: the `<span class="q-source">` tag near the question, AND the `<p class="answer-cites">` block inside the reveal. Both must update.
+
+### Gotchas carried over from earlier phases
 - 4 new lecture audio files use `Dr._3alaa` naming (midterm used `Dr._3adel`) — `transcribe.py` handles via `normalize_tag()`
 - `.ppt` (not `.pptx`) needs LibreOffice conversion first — already done
 - Maersk case is short (247 words), Starbucks (401), Market-driven org (3,890 — theoretical, distill to study reference)
 - Final-exam template image dictates 3-question shape; Dr. Alaa's writing pattern (per midterm) is test-bank-recycled definitions
 
 ### Cost so far
-- Whisper estimated $1.79 (running)
-- Nothing else
+- Whisper: $3.60 total (Source A + Source B)
+- No other paid-API costs
 
 ## Open Questions
-- None — plan is approved end-to-end (see plan file).
+- None — Phase 8 is open-ended (driven by Ahmed's reads). Each finding closes itself.
 
 ## Tasks
-Use `TaskList` to see status. Currently:
-- #1 Phase 0 Calibration — completed
-- #2 Phase 1 Whisper — in_progress (running in background)
-- #3 Phase 2 Slide extraction — completed
-- #4-#8 — pending
+Phase tracking moved out of inline list — see `CHAPTER_REVIEW.md` for live row-by-row Phase-8 audit table. Phases 0–7 all completed pre-ship.
