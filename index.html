@@ -330,10 +330,30 @@
     letter-spacing: 0.2px;
   }
   .plain-english h4 { color: #6b4500; margin-top: 18px; }
-  .plain-english p, .plain-english li { font-size: 0.97rem; line-height: 1.55; }
-  .plain-english table { background: #fffdf6; }
-  .plain-english code { background: #fff2d4; }
+  .plain-english p, .plain-english li { font-size: 0.97rem; line-height: 1.55; color: #2a1d00; }
+  .plain-english strong { color: #1a1300; }
+  .plain-english table { background: #fffdf6; color: #2a1d00; }
+  .plain-english th, .plain-english td { color: #2a1d00; }
+  .plain-english code { background: #fff2d4; color: #6b4500; }
   .plain-english em { color: #6b4500; }
+
+  /* Dark-mode override for the Plain English box */
+  html[data-theme="dark"] .plain-english {
+    background: #2a2418;
+    border-left-color: #f5b84a;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  }
+  html[data-theme="dark"] .plain-english > h3:first-child { color: #f5d27a; }
+  html[data-theme="dark"] .plain-english h4 { color: #ffd98a; }
+  html[data-theme="dark"] .plain-english p,
+  html[data-theme="dark"] .plain-english li { color: #f0e4cc; }
+  html[data-theme="dark"] .plain-english strong { color: #fff5d8; }
+  html[data-theme="dark"] .plain-english em { color: #f5d27a; font-style: italic; }
+  html[data-theme="dark"] .plain-english table { background: #1f1a10; color: #f0e4cc; }
+  html[data-theme="dark"] .plain-english th,
+  html[data-theme="dark"] .plain-english td { color: #f0e4cc; border-color: #4a3d20; }
+  html[data-theme="dark"] .plain-english code { background: #3a2f18; color: #ffd98a; }
+  html[data-theme="dark"] .plain-english a { color: #ffd98a; }
 
   /* ---- Answer box (toggle + body) ---- */
   .answer-box {
