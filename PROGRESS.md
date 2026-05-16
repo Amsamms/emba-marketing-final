@@ -10,6 +10,18 @@ Build a unified single-file HTML study portal covering all 7 chapters (3 from mi
 
 ## Current Status
 
+**Phase 9 (2026-05-16) — Plain English chapter explainer layer SHIPPED across all 7 chapters.** Trigger: Ahmed asked "why isn't the website talking simply like you do in chat?" Built a third pedagogical layer (separate from the slide-faithful + per-concept layers) — a single coherent end-to-end narrative at the top of every chapter, written in chat-style simple English, using ONE running example (`BrewHaus` coffee shop) that builds on itself across all 7 chapters so the whole 4P+STP+Strategy curriculum reads as one continuous mental model. Each chapter explainer is structured as 5–8 numbered concept blocks (`<h4>1. …</h4>`) plus a closing "How chapter X connects together" anchor paragraph forward-referencing the next chapter.
+
+**Implementation details (Phase 9):**
+- Block markup: `<div class="plain-english">` → auto-converted at page load by JS into `<details>` + `<summary>` (the existing `<h3>` becomes the summary). Custom amber ▸ arrow rotates to ▾ on open.
+- **Collapsed by default** — Ahmed's explicit request: "studier for previous study do not get confused". Returning revisers see only a slim amber bar above each chapter's existing content; first-time learners click to expand. Saved as the new feedback memory `memory/feedback_collapsed_by_default.md`.
+- `window.beforeprint` opens every `details.plain-english` so printed/PDF copies still include the full explainer.
+- CSS lives in `<style>` near the `.answer-box` rules. Both light-mode (cream `#fff8e8` bg + dark amber text) and dark-mode (`#2a2418` bg + cream `#f0e4cc` text) styles exist; the portal does NOT honour `prefers-color-scheme` so the dark-mode CSS only fires when `html[data-theme="dark"]` is set via the moon-icon toggle.
+- Commits (in order): `859f196` (Ch.8/10/11/14 explainers + base CSS) → `7436a91` (Ch.1a/1b/7 explainers) → `5624531` (dark-mode readability fix) → `c1cd422` (collapsible refactor).
+- Skill propagation: the 3-layer mental model + collapsed-by-default default were both baked into the global `deck-to-portal` skill at `~/.claude/skills/deck-to-portal/SKILL.md` (Mental Model section + new Step 6.5). Future deck→portal builds will auto-include this layer.
+- Verified live with Playwright (Ch.8 in both light and dark modes; all 7 boxes confirmed as `<details>` with `open: false`).
+- Side-task: a `.dat`-renamed copy of `index.html` was emailed to `asabri@eprom-midor.com.eg` via Gmail SMTP. EPROM mailbox status as of 2026-04-13 was administratively disabled — delivery may have bounced; check NDR in Gmail.
+
 **Phase 8 — chapter-by-chapter slide-vs-portal review** (opened 2026-05-14, ongoing).
 
 Ahmed is reading each PowerPoint deck slide-by-slide and comparing it against the live portal. Findings are logged in `study_notes/CHAPTER_REVIEW.md` (the single source of truth for what's been reviewed, found, and fixed). Workflow per finding: Ahmed flags → I check source `.md` / `index.html` → propose patch → `Edit` → `git commit` → `git push` → GH Pages redeploys in ~30–60s → mark row 🟢 in CHAPTER_REVIEW with commit hash.
