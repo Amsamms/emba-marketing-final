@@ -314,15 +314,52 @@
     color: var(--accent-2); font-weight: 700;
   }
 
-  /* ---- Plain English explainer box (chapter-level friendly walkthrough) ---- */
+  /* ---- Plain English explainer box (chapter-level friendly walkthrough, collapsible) ---- */
   .plain-english {
     margin: 18px 0 26px;
-    padding: 18px 22px 6px;
+    padding: 0;
     border-left: 5px solid #f5b84a;
     background: #fff8e8;
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.04);
   }
+  details.plain-english { padding: 0; }
+  details.plain-english > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 14px 22px;
+    font-weight: 700;
+    color: #8a5a00;
+    font-size: 1.05rem;
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+    border-radius: 6px;
+  }
+  details.plain-english > summary::-webkit-details-marker { display: none; }
+  details.plain-english > summary::before {
+    content: '▸';
+    display: inline-block;
+    transition: transform 0.18s ease;
+    color: #c98a1a;
+    font-size: 0.95rem;
+  }
+  details.plain-english[open] > summary::before { transform: rotate(90deg); }
+  details.plain-english > summary:hover { background: rgba(245,184,74,0.10); }
+  details.plain-english[open] > summary {
+    border-bottom: 1px solid rgba(245,184,74,0.30);
+    border-radius: 6px 6px 0 0;
+  }
+  details.plain-english[open] { padding-bottom: 6px; }
+  details.plain-english > :not(summary) {
+    margin-left: 22px;
+    margin-right: 22px;
+  }
+  details.plain-english > p:first-of-type,
+  details.plain-english > h4:first-of-type { margin-top: 14px; }
+
   .plain-english > h3:first-child {
     margin-top: 0;
     color: #8a5a00;
@@ -344,6 +381,10 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.35);
   }
   html[data-theme="dark"] .plain-english > h3:first-child { color: #f5d27a; }
+  html[data-theme="dark"] details.plain-english > summary { color: #f5d27a; }
+  html[data-theme="dark"] details.plain-english > summary::before { color: #f5b84a; }
+  html[data-theme="dark"] details.plain-english > summary:hover { background: rgba(245,184,74,0.12); }
+  html[data-theme="dark"] details.plain-english[open] > summary { border-bottom-color: rgba(245,184,74,0.30); }
   html[data-theme="dark"] .plain-english h4 { color: #ffd98a; }
   html[data-theme="dark"] .plain-english p,
   html[data-theme="dark"] .plain-english li { color: #f0e4cc; }
@@ -7834,6 +7875,25 @@ Dr. Alaa's class example: in a popular-area supermarket, <em>"he sells at wholes
   // Reveal all when printing
   window.addEventListener('beforeprint', () => {
     document.querySelectorAll('.exam-q').forEach(q => q.classList.add('revealed'));
+    document.querySelectorAll('details.plain-english').forEach(d => d.open = true);
+  });
+
+  // Convert .plain-english boxes into collapsible <details>, collapsed by default
+  document.querySelectorAll('.plain-english').forEach(box => {
+    if (box.tagName.toLowerCase() === 'details') return;
+    const h3 = box.querySelector(':scope > h3');
+    const details = document.createElement('details');
+    details.className = box.className;
+    const summary = document.createElement('summary');
+    if (h3) {
+      summary.innerHTML = h3.innerHTML;
+      h3.remove();
+    } else {
+      summary.textContent = 'In Plain English — click to expand';
+    }
+    details.appendChild(summary);
+    while (box.firstChild) details.appendChild(box.firstChild);
+    box.replaceWith(details);
   });
 </script>
 </body>
