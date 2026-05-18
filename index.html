@@ -131,6 +131,28 @@
     font-size: 1.02rem;
   }
   .citation { color: var(--muted); font-size: 0.82rem; font-family: monospace; }
+  /* Chapter-level readability mode: lighter, smaller, sidenote-style citations.
+     Currently scoped to Ch.14 only (tab-ch14). Expand class list to migrate other chapters. */
+  #tab-ch14 .citation,
+  #tab-ch14 .citation .citation {
+    color: #9aa3ad;
+    font-size: 0.68rem;
+    font-family: inherit;
+    font-style: italic;
+    font-weight: 400;
+    opacity: 0.75;
+    letter-spacing: 0.1px;
+    white-space: nowrap;
+  }
+  #tab-ch14 code > .citation,
+  #tab-ch14 .citation code { background: transparent; padding: 0; border: 0; }
+  #tab-ch14 .muted-note { color: var(--muted); font-size: 0.85rem; margin-top: -6px; }
+  #tab-ch14 blockquote { border-left: 3px solid var(--border); padding: 4px 12px; margin: 10px 0; color: inherit; font-size: 0.95rem; background: transparent; }
+  #tab-ch14 details.deck-quotes { margin: 4px 0 12px; font-size: 0.88rem; }
+  #tab-ch14 details.deck-quotes > summary { cursor: pointer; color: var(--muted); font-size: 0.82rem; padding: 2px 0; list-style: none; }
+  #tab-ch14 details.deck-quotes > summary::before { content: "▸ "; color: var(--muted); }
+  #tab-ch14 details.deck-quotes[open] > summary::before { content: "▾ "; }
+  #tab-ch14 details.deck-quotes ul, #tab-ch14 details.deck-quotes p { color: var(--muted); margin: 6px 0; }
 
   table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.92rem; display: block; overflow-x: auto; }
   th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
@@ -4117,69 +4139,57 @@ Slide 25 also adds: <em>"It's a measure of the brand's ability to capture consum
 <p>You make a product (Ch.8), price it (Ch.10), promote it (Ch.11) — but it still has to physically REACH the customer. That's the channel: a chain of middlemen who perform 8 value-adding functions → conflicts inevitably arise (horizontal/vertical) → companies organize into VMS (corporate / contractual / administered) to manage the conflict → they then DESIGN the channel by analyzing customer needs and choosing intensity → and run LOGISTICS to physically move the goods. <strong>Same BrewHaus, now extending its reach beyond a single shop.</strong></p>
 </div>
 
-<blockquote>
-<p><strong>Coverage note.</strong> The slide deck for this chapter (<code>place_PPT_C14.ppt</code>, 21 slides) covers sections <strong>12.1 Supply Chains and the Value Delivery Network</strong>, <strong>12.2 The Nature and Importance of Marketing Channels</strong>, and <strong>12.3 Channel Behavior and Organization</strong>. Sections <strong>12.4 Channel Design Decisions, 12.5 Channel Management Decisions, 12.6 Marketing Logistics and Supply Chain Management, 12.7 Retailing, 12.8 Retailer Marketing Decisions, 12.9 Wholesaling, and 12.10 Agents and Distributors</strong> appear only in the Topic Outline on slides 2–3 and were not unpacked in class. This notes file mirrors what Dr. Alaa actually taught and what is on the deck. Where I add brief textbook coverage of an outlined-but-not-taught topic for completeness, it is flagged "<em>outline only</em>".</p>
-</blockquote>
 <hr>
-<h2 id="in-one-sentence">In one sentence</h2>
-<p><strong>Place</strong> (the third "P" of the marketing mix) is everything a company does to get its product from the producer to the final customer — and a <strong>marketing channel</strong> is the chain of organizations (wholesalers, retailers, distributors) that the producer enlists to make that happen. <span class="citation"><span class="citation">[Slide 7]</span></span></p>
-<h2 id="in-plain-language">In plain language</h2>
-<p>You can build the best product (Ch.8), price it perfectly (Ch.10), and shout the loudest about it (Ch.11) — but if the customer can't find it on a shelf, on a website, or in a store nearby, none of that matters. <strong>Place is the bridge that closes the gap between "produced" and "purchased."</strong> <span class="citation"><span class="citation">[Slide 8]</span></span></p>
-<p>There are two ways to think about that bridge:</p>
+<h2 id="in-one-sentence">The chapter in one line</h2>
+<p>You've made the product, priced it, and promoted it. Now you have to physically get it to the customer. That's <strong>Place</strong>, the fourth P — and the <strong>marketing channel</strong> is the chain of wholesalers, retailers, and distributors that does the moving for you. <span class="citation">[Slide 7]</span></p>
+
+<h2 id="in-plain-language">Why "Place" matters</h2>
+<p>The best product in the world is useless if the customer can't reach it. Place is the bridge between "produced" and "purchased" — a great-tasting BrewHaus blend stuck in a warehouse with no shelf, no website, and no delivery is the same as no product at all. <span class="citation">[Slide 8]</span></p>
+
+<p>There are two ways a company can think about that bridge, and they point in opposite directions:</p>
 <ul>
-<li><strong>Supply chain</strong> = the <em>"make-and-sell"</em> view. Starts from the factory: raw materials → production → distribution → customer. The producer is in the centre.</li>
-<li><strong>Demand chain</strong> = the <em>"sense-and-respond"</em> view. Starts from the customer: what does the target customer need? Then you organize the chain of resources backwards to deliver it. The customer is in the centre. <span class="citation"><span class="citation">[Slide 5]</span></span></li>
+<li><strong>Supply chain</strong> — the factory-out view. You start with what you can make (raw materials, production capacity) and push it forward toward whoever will buy it. Slogan: <em>"make and sell."</em></li>
+<li><strong>Demand chain</strong> — the customer-in view. You start with what the target customer needs and then organize a chain of suppliers and partners <em>backwards</em> to deliver it. Slogan: <em>"sense and respond."</em> <span class="citation">[Slide 5]</span></li>
 </ul>
-<p>In practice firms aim higher than either — a <strong>value delivery network</strong>, defined on Slide 6 verbatim as <em>"made up of the company, suppliers, distributors, and ultimately customers who partner with each other to improve the performance of the entire system."</em> <span class="citation"><span class="citation">[Slide 6 — verbatim]</span></span></p>
-<p>Why bother with intermediaries at all? Because they cut your transaction cost dramatically. Dr. Alaa walks through the textbook example: imagine 3 manufacturers each trying to reach 3 customers directly. That is 3 × 3 = <strong>9 separate contacts</strong>. Now put a single distributor between them — each manufacturer talks to the distributor (3 contacts) and each customer talks to the distributor (3 contacts) — total <strong>6 contacts</strong>. <span class="citation"><span class="citation">[Slide 9 — Figure 14.1, M × C = 9 vs M + C = 6]</span></span></p>
-<p>And the savings explode at scale. Dr. Alaa dramatized this in class:</p>
-<blockquote>
-<p><em>"Think bigger. Imagine 100 manufacturers and 100 customers. Without a distributor, you have </em><em>10,000</em><em> individual contacts. With a distributor, you have </em><em>200</em><em>. Imagine the time saved!"</em> <span class="citation"><span class="citation">[Lec 6 @ 29:37–29:55 — verbatim Arabic: <em>"حط هنا مية، وحط هنا مية… ضربت مية في مية تلاقوا 10 تلاف… لو جبت واحد دستريبيوتر ما بين الميت مصنع والميت مستهلك… 200"</em>]</span></span></p>
-</blockquote>
-<p>That is the mathematical core: distribution efficiency converts a <strong>multiplicative</strong> problem (M × C) into an <strong>additive</strong> one (M + C), directly lowering the <strong>search cost</strong> for the consumer and providing the three classic utilities of <strong>Time, Place, and Possession</strong>.</p>
+<p>The modern goal is bigger than either alone — a <strong>value delivery network</strong>: the producer, its suppliers, its distributors, and its customers all behaving like partners who care about the whole system performing, not just their own slice. <span class="citation">[Slide 6]</span></p>
+
+<h3>Why you need intermediaries at all</h3>
+<p>The single most important reason: middlemen <strong>cut the number of contacts</strong> needed to connect producers and customers. Imagine 3 BrewHaus-style coffee producers each trying to reach 3 customers on their own — that's 3 × 3 = <strong>9 separate selling relationships</strong> to set up and maintain. Put one distributor in the middle and each producer just talks to the distributor (3 contacts) and each customer just talks to the distributor (3 contacts) — total drops to <strong>6</strong>. <span class="citation">[Slide 9 — Figure 14.1]</span></p>
+<p>Scale that up and the savings explode. Dr. Alaa's class version: 100 producers and 100 customers trying to reach each other directly = <strong>10,000</strong> separate relationships. Add a distributor in the middle and that collapses to <strong>200</strong> (100 producers → distributor → 100 customers). One middleman just saved 9,800 individual transactions. <span class="citation">[Lec 6 @ 29:37]</span></p>
+<p>What's actually happening: distribution converts a <strong>multiplicative</strong> problem (M × C) into an <strong>additive</strong> one (M + C). Beyond the math, that middleman also delivers the three classic <strong>utilities</strong> a customer cares about — having the thing at the right <strong>time</strong>, in the right <strong>place</strong>, with clean <strong>possession</strong> (ownership transferred).</p>
+
 <hr>
 <h2 id="core-concepts">Core concepts</h2>
-<h3 id="1-supply-chain-demand-chain-and-the-value-delivery-network-citationstartslides-46citationend">1. Supply chain, demand chain, and the value delivery network <span class="citation"><span class="citation">[Slides 4–6]</span></span></h3>
+
+<h3 id="upstream-vs-downstream">Upstream vs downstream partners <span class="citation">[Slide 4]</span></h3>
+<p>Every company sits in the middle of a chain that has two halves. Look <em>backward</em> from the company and you see the <strong>upstream partners</strong> — the suppliers who bring in the raw materials, components, finance, information, and expertise needed to actually make the product. Look <em>forward</em> from the company and you see the <strong>downstream partners</strong> — the marketing channels (wholesalers, retailers, distributors) that carry it to the customer. The rest of this chapter is about the downstream half, but keep upstream in mind: the channel can only deliver what upstream lets you make.</p>
+
+<h3 id="what-is-a-marketing-channel">What is a marketing channel? <span class="citation">[Slide 7]</span></h3>
+<p>A marketing channel is just the chain of organizations — wholesalers, retailers, distributors — that takes the producer's product and makes it available to the final buyer. Two words in the textbook definition do all the work and are worth memorising:</p>
 <ul>
-<li><strong>Upstream partners</strong> of a firm = the suppliers that bring in <em>raw materials, components, parts, information, finances, and expertise</em> needed to create the product or service.</li>
-<li><strong>Downstream partners</strong> = the marketing channels / distribution channels that look towards the customer.</li>
-<li><strong>Supply chain view</strong> ("make and sell"): per Slide 5 verbatim — <em>"includes the firm's raw materials, productive inputs, and factory capacity."</em> You start with what you can produce and push it forward.</li>
-<li><strong>Demand chain view</strong> ("sense and respond"): per Slide 5 verbatim — <em>"planning starts with the needs of the target customer, and the firm responds to these needs by organizing a chain of resources and activities with the goal of creating customer value."</em></li>
-<li><strong>Value delivery network</strong>: company + suppliers + distributors + customers all linked as partners with a shared interest in the whole system's performance — not just their own profit. <span class="citation"><span class="citation">[Slide 6]</span></span></li>
+<li><strong>"Interdependent"</strong> — every member's success depends on the others. The producer can't reach the customer without the retailer; the retailer has nothing to sell without the producer. They are stuck with each other, even when they disagree.</li>
+<li><strong>"Available for use or consumption"</strong> — that is the channel's job in five words. Not just "shipped." Available. On a shelf, on a website, at a door, ready to be used or consumed by the buyer.</li>
 </ul>
-<h3 id="2-what-is-a-marketing-channel-citationstartslide-7citationend">2. What is a marketing channel? <span class="citation"><span class="citation">[Slide 7]</span></span></h3>
-<blockquote>
-<p><strong>Marketing channel (a.k.a. distribution channel)</strong> = <em>a set of interdependent organizations that help make a product or service available for use or consumption by the consumer or business user.</em> <span class="citation"><span class="citation">[Slide 7 — verbatim Kotler definition]</span></span></p>
-</blockquote>
-<p>The two italicised words to memorise:
-- <strong>"interdependent"</strong> — every channel member's success depends on the others. The producer cannot reach the customer alone; the retailer has nothing to sell without the producer.
-- <strong>"available for use or consumption"</strong> — that's the channel's job description in five words.</p>
-<h4 id="egyptian-manufacturer-examples">Egyptian manufacturer examples</h4>
-<p>Dr. Alaa anchored the discussion with three local manufacturers that rely on wholesalers + retailers to reach final consumers:
-- <strong>Amreya Spinning and Weaving</strong> (الإسكندرية للغزل والنسج)
-- <strong>Baniata</strong> (بنياتا)
-- <strong>Basco Masr</strong></p>
-<p>Each makes products in a factory and must depend on a chain of intermediaries — <em>"the factory might be in the 10th of Ramadan City or Cairo, but the product must be </em><em>here</em><em> for you to buy"</em>. <span class="citation"><span class="citation">[Lec 6 @ ~08:30, source: NotebookLM transcript]</span></span></p>
-<h4 id="consumer-vs-business-user-the-restaurant-test">Consumer vs Business User — the restaurant test</h4>
-<p>Dr. Alaa posed a sharp class question to define the buyer side of the channel definition:</p>
-<blockquote>
-<p><em>"If a restaurant buys napkins and ketchup, are they a consumer? No. They buy to provide a service and generate profit. They are a </em><em>Business User</em><em>."</em> <span class="citation"><span class="citation">[Lec 6 @ ~10:30, source: NotebookLM transcript]</span></span></p>
-</blockquote>
-<p>A student then asked whether a restaurant is a product or a service. Dr. Alaa:</p>
-<blockquote>
-<p><em>"It's both — a </em><em>package of benefits</em><em>. The food is the tangible product; the music, air conditioning, and atmosphere are the intangible services."</em> <span class="citation"><span class="citation">[Lec 6 @ ~11:30, source: NotebookLM transcript]</span></span></p>
-</blockquote>
-<p>This is a clean B2B-vs-B2C distinction wrapped around a product-plus-service framing — exam-grade content.</p>
-<h3 id="3-how-channel-members-add-value-citationstartslide-8citationend">3. How channel members add value <span class="citation"><span class="citation">[Slide 8]</span></span></h3>
-<p>Channel members do three things the producer cannot easily do alone:</p>
+<p>Kotler's exact wording, for reference: <em>"a set of interdependent organizations that help make a product or service available for use or consumption by the consumer or business user."</em> <span class="citation">[Slide 7 — Kotler definition]</span></p>
+
+<h4>Local examples — three Egyptian manufacturers that rely on channels</h4>
+<p>Dr. Alaa anchored the definition in three real Egyptian producers, all of which must depend on wholesalers and retailers to reach end consumers: <strong>Amreya Spinning and Weaving</strong> (الإسكندرية للغزل والنسج), <strong>Baniata</strong> (بنياتا), and <strong>Basco Masr</strong>. The point: the factory might be in 10th of Ramadan City or somewhere outside Cairo, but the product has to physically end up on a shelf near you — and the producer can't open shelves everywhere itself. <span class="citation">[Lec 6 @ ~08:30]</span></p>
+
+<h4>Who is the "user" — consumer vs business user</h4>
+<p>The channel definition says "consumer or business user." The distinction matters. Dr. Alaa's class test: <strong>if a restaurant buys napkins and ketchup, is that restaurant a consumer?</strong> No. The restaurant isn't consuming the ketchup for personal pleasure — it's using ketchup to deliver a service to its own paying customers and generate profit. That makes the restaurant a <strong>business user</strong>, not a consumer. The simple rule: <em>consumer</em> = buys for personal use; <em>business user</em> = buys to resell or to use in producing its own offering. <span class="citation">[Lec 6 @ ~10:30]</span></p>
+<p>A student then asked: is a restaurant a product or a service? Dr. Alaa: it's <strong>both — a package of benefits</strong>. The food is the tangible product; the music, the air conditioning, and the atmosphere are the intangible service wrapped around it. This same "product + service package" framing showed up in Ch.8 and matters for exam questions that try to pin you to one side. <span class="citation">[Lec 6 @ ~11:30]</span></p>
+
+<h3 id="how-channel-members-add-value">How channel members add value <span class="citation">[Slide 8]</span></h3>
+<p>A channel doesn't just move boxes. The middlemen perform <strong>three big jobs</strong> the producer would otherwise have to do itself, badly:</p>
 <ol>
-<li><strong>Transform the assortment.</strong> A producer makes a narrow range in huge quantities; a customer wants a broad range in tiny quantities. The channel members break bulk and re-bundle.</li>
-<li><strong>Match supply and demand.</strong> Channel members buffer mismatches between how much the producer makes and how much customers want.</li>
-<li><strong>Bridge the gaps of time, place, and possession</strong> between the goods and those who would use them. <span class="citation"><span class="citation">[Slide 8]</span></span></li>
+<li><strong>They turn factory output into shopper-friendly variety.</strong> Producers make a narrow range in huge quantities (BrewHaus makes a thousand identical kilo-bags of one blend). Customers want a wide range in tiny quantities (a customer wants 250g of <em>this</em> blend and 250g of <em>that</em> blend). The channel breaks bulk, sorts, repackages, and re-bundles so the producer's narrow-and-deep output becomes the shopper's wide-and-shallow choice.</li>
+<li><strong>They absorb the mismatch between making and buying.</strong> Producers make at a steady rate; customers buy in unpredictable bursts. Channel members hold inventory, smooth out the timing, and act as a shock absorber between the factory's pace and the market's pace.</li>
+<li><strong>They close the gap of <em>time</em>, <em>place</em>, and <em>possession</em>.</strong> They get the product to where the customer is, when the customer wants it, and they transfer legal ownership so the customer can actually walk away with it.</li>
 </ol>
-<p>Dr. Alaa's class example for this matching role: <em>"a supermarket in a popular [working-class] neighbourhood will stock cheap brands, small sizes, and reasonably priced brands; a supermarket in an upscale neighbourhood will not stock the same things its colleague in the popular area does."</em> The same chain (Carrefour, Spinneys) carries different assortments per branch because the channel matches the assortment to the local segment. <span class="citation"><span class="citation">[Lec 6 @ 20:00 — verbatim Arabic in Lec_6_B; Lec 6 @ 20:02 in Lec_6 source A]</span></span></p>
-<h3 id="4-how-channel-members-add-value">4. How channel members add value — the 8 functions <span class="citation"><span class="citation">[Slide 10]</span></span></h3>
-<p>Channel members perform <strong>8 functions</strong>, all of which would otherwise fall on the producer:</p>
+<p>Dr. Alaa's anchor example for that first job — turning factory output into shopper-friendly variety — is the supermarket chain. Carrefour and Spinneys carry <em>different stock</em> in a working-class neighbourhood than in an upscale one: cheap brands and small sizes in popular areas, premium brands and bigger pack sizes in the affluent ones. Same chain, same producers, same trucks — but the local channel adjusts the assortment to match the local segment. The producer alone could never customise its mix that finely; the channel does it automatically. <span class="citation">[Lec 6 @ 20:00]</span></p>
+
+<h3 id="eight-channel-functions">The 8 functions a channel actually performs <span class="citation">[Slide 10]</span></h3>
+<p>Zoom in on the channel and you'll see eight distinct jobs — and the key insight is that <strong>these jobs have to be done by someone</strong>. You can cut out a middleman, but you cannot cut out their function. Whatever job they were doing now lands on you.</p>
 <table>
 <thead>
 <tr>
@@ -4222,148 +4232,156 @@ Slide 25 also adds: <em>"It's a measure of the brand's ability to capture consum
 </tr>
 </tbody>
 </table>
-<p><span class="citation"><span class="citation">[Slide 10]</span></span></p>
-<p><strong>Dr. Alaa's vivid Risk-Taking examples</strong> <span class="citation"><span class="citation">[Lec 6 @ ~17:00, source: NotebookLM transcript]</span></span>:
-- <strong>The Fakihani / fruit seller (الفاكهاني)</strong> — risks spoilage on perishable produce. If 200 kg of strawberries don't sell today, the fakihani eats that loss, not the farmer or the wholesaler upstream. The channel intermediary is paid (via margin) to absorb that spoilage risk the manufacturer would otherwise face.
-- <strong>The Pharmacy</strong> — must manage the return of expired medicines to the producer. The pharmacy carries the inventory risk for the entire shelf-life of the medicine; only on expiry does it negotiate a return-and-replace agreement with the wholesaler/producer. Until then, expired/unsold stock is the pharmacy's loss.</p>
-<p>Same logic, two industries: the closer the intermediary sits to the final customer, the more <strong>inventory + spoilage risk</strong> it absorbs — and that absorbed risk is part of what the producer "buys" by letting the intermediary into the channel.</p>
-<h3 id="5-channel-types-and-flows">5. Channel types &amp; flows — consumer vs business channels (s.11) and 5 channel flows (s.12) <span class="citation"><span class="citation">[Slide 11 — Figure 14.2; Slide 12]</span></span></h3>
-<p><em>Scope note:</em> Slide 11 = Figure 14.2 <em>Consumer and Business Marketing Channels</em> (channel-length variants). Slide 12 = the <strong>5 flow types</strong> (physical / ownership / payment / information / promotion) connecting levels. Two distinct topics combined here for compactness.</p>
-<p>A <strong>channel level</strong> = each layer of marketing intermediaries that brings the product closer to the final buyer. The count is the number of intermediaries (the producer and the final customer are NOT counted as levels).</p>
-<p><strong>Consumer channels</strong> (Figure 14.2 panel A — slide 11 shows the boxes only; the example column below is textbook-standard, not on the slide):
-| Channel | Path | Levels | Examples (textbook standard, not on Slide 11) |
-|---|---|---|---|
-| Channel 1 | Producer → Consumer | <strong>Direct (0 levels)</strong> | Avon doorbell sales, Dell direct, Apple's own stores, a farmer selling at the gate |
-| Channel 2 | Producer → Retailer → Consumer | <strong>1 level</strong> | A clothing brand selling through a department-store chain |
-| Channel 3 | Producer → Wholesaler → Retailer → Consumer | <strong>2 levels</strong> | Almarai → wholesaler → small grocer → you |</p>
-<p><strong>Business channels</strong> (Figure 14.2 panel B): same logic with industrial intermediaries
-| Channel | Path | Levels |
-|---|---|---|
-| Channel 1 | Producer → Business customer | Direct |
-| Channel 2 | Producer → Business distributor → Business customer | 1 level |
-| Channel 3 | Producer → Manufacturer's reps / sales branch → Business distributor → Business customer | 2 levels |</p>
-<p><span class="citation"><span class="citation">[Slide 11 — Figure 14.2]</span></span></p>
-<p><strong>What flows along the channel?</strong> Slide 12 lists five flows:
-- <strong>Physical flow</strong> of products
-- <strong>Flow of ownership</strong> (legal title moves)
-- <strong>Payment flow</strong> (money moves the other direction)
-- <strong>Information flow</strong> (both directions)
-- <strong>Promotion flow</strong> (downstream toward the customer) <span class="citation"><span class="citation">[Slide 12]</span></span></p>
-<p><strong>How do you choose how many levels to use?</strong> Dr. Alaa walked through the rule in class:</p>
-<blockquote>
-<p><em>"It depends on the physical perishability of the product. Does the product have a long shelf-life or a short one? If the shelf-life is short, you must shorten the channel. If the shelf-life is long, you can lengthen the channel."</em> <span class="citation"><span class="citation">[Lec 6 @ 50:30–50:55]</span></span></p>
-</blockquote>
-<p>Same logic for <strong>unit value</strong>: high-value, low-volume items (luxury watches, custom industrial equipment) prefer <strong>shorter</strong> channels for control; low-value, high-volume items (sweets, soft drinks) tolerate <strong>longer</strong> channels for reach. <span class="citation"><span class="citation">[Lec 6 @ 51:00–52:00]</span></span></p>
-<h3 id="6-channel-conflict">6. Channel behavior — conflict (horizontal &amp; vertical) <span class="citation"><span class="citation">[Slide 13]</span></span></h3>
-<p><em>Scope note:</em> Slide 13 covers only the <strong>conflict</strong> side (horizontal + vertical). "Cooperation" was previously in this heading but is not on slide 13 — removed for accuracy.</p>
-<p>A channel is a partnership — every member plays a specialised role for the <strong>common good</strong> of the whole channel. But because each member is also an independent business chasing its own profit, <strong>channel conflict</strong> is inevitable.</p>
-<blockquote>
-<p><strong>Channel conflict</strong> = disagreement over goals, roles, and rewards by channel members. <span class="citation"><span class="citation">[Slide 13 — verbatim]</span></span></p>
-</blockquote>
-<p>Slide 13 lists two flavours by name only — <strong>(1) Horizontal conflict</strong> and <strong>(2) Vertical conflict</strong> — and does not define either on the slide. The textbook-standard definitions (used in class to interpret the list):
-- <strong>Horizontal conflict</strong> — between firms at the <em>same</em> level of the channel (two retailers fighting over the same territory; two wholesalers chasing the same big retailer's business). <em>(definition is Kotler textbook standard; not on Slide 13)</em>
-- <strong>Vertical conflict</strong> — between firms at <em>different</em> levels (producer vs retailer, wholesaler vs producer). <em>(definition is Kotler textbook standard; not on Slide 13)</em></p>
-<h4 id="dr-alaas-carrefour-vs-almarai-class-example">Dr. Alaa's Carrefour-vs-Almarai (المراعي) class example</h4>
-<p>This is the case to remember for the exam — Dr. Alaa spent ~3 minutes on it. <span class="citation"><span class="citation">[Lec 6 @ 59:53–1:01:13; same content Lec_6_B @ 57:02–1:01:14]</span></span></p>
+<p>Two of Dr. Alaa's class anchors for the <strong>risk-taking</strong> function in particular: <span class="citation">[Lec 6 @ ~17:00]</span></p>
 <ul>
-<li><strong>Setting</strong>: this happened in <strong>SAUDI ARABIA</strong> (not Egypt). <em>"Look at Almarai vs. Carrefour in Saudi Arabia. For a long time, you couldn't find Almarai products in Carrefour."</em> <span class="citation"><span class="citation">[Lec 6 @ 59:11–59:33 — verbatim Arabic: <em>"عندك في كراه السعودية… في السعودية في أي مدينة مش هتلاقي المراعي في كارثور"</em>]</span></span></li>
-<li><strong>Setup</strong>: Almarai (المراعي) is a large Saudi-Egyptian dairy producer. Carrefour is a big multinational retailer.</li>
-<li><strong>The conflict — two power sources collide</strong>:</li>
-<li><strong>Carrefour</strong> wielded <strong>Market-Access / Size Power</strong> — using its huge retail footprint and shelf-access leverage to dictate terms (shelf fees, payment timing, pricing margins) to suppliers. <span class="citation"><span class="citation">[Lec 6 @ 1:00:30 area, lecture interpretation; "size to dictate prices" framing is NotebookLM paraphrase]</span></span></li>
-<li><strong>Almarai</strong> wielded <strong>Brand Power</strong> — its strong consumer brand pull let it refuse those terms. Verbatim Whisper line: <em>"Almarai sees itself as a big company; it would not let Carrefour dictate terms — I am the one who should be dictating terms to you."</em> <span class="citation"><span class="citation">[Lec 6 @ 1:00:30 — verbatim Arabic: <em>"المراعي شايف انها شركة كبيرة وانفعش كارفور يفرض عليها شركة… انا المفروض افرض عليها شركة"</em>]</span></span></li>
-<li><strong>The outcome</strong>: Almarai walked out. <em>"All Carrefour branches no longer carry Almarai products."</em> <span class="citation"><span class="citation">[Lec 6 @ 1:00:44]</span></span></li>
-<li><strong>What it illustrates</strong>: a <strong>vertical conflict</strong> between two channel partners with <em>different sources of power</em> (size vs brand). The lesson — <strong>channel power can come from either market access (retailer size) or brand pull (producer strength); when both sides have power, conflict is unresolvable and the channel breaks.</strong> Other small/medium retailers still carry Almarai — so Almarai swapped one channel partner for many.</li>
-<li><strong>Other class examples</strong>: Cilantro coffee shops fighting bigger café chains; the small-chain-affiliates approach (e.g., a small pharmacy joining the "صيدلية خليل" / Khalil pharmacy chain to use the chain's brand, IT system, and bulk-buying power) — that's also how channel power forces small players to ally with big ones. <span class="citation"><span class="citation">[Lec 6 @ 1:01:30–1:02:32]</span></span></li>
+<li><strong>The fakihani (الفاكهاني — fruit seller)</strong> — perishable goods. If 200 kg of strawberries don't move today, the loss is his, not the farmer's or the wholesaler's. He's paid (through margin) to absorb that spoilage risk for everyone upstream.</li>
+<li><strong>The pharmacy</strong> — long shelf-life but eventual expiry. The pharmacy carries inventory risk for the medicine's entire shelf-life and only negotiates a return-and-replace with the wholesaler/producer when the box actually expires. Until then, every unsold box is the pharmacy's problem.</li>
 </ul>
-<h3 id="7-how-channels-are-organised-vms-hms-multichannel-citationstartslides-1420citationend">7. How channels are organised — VMS, HMS, Multichannel <span class="citation"><span class="citation">[Slides 14–20]</span></span></h3>
-<h4 id="7a-conventional-distribution-channel-citationstartslide-14citationend">7a. Conventional distribution channel <span class="citation"><span class="citation">[Slide 14]</span></span></h4>
-<blockquote>
-<p><em>"One or more independent producers, wholesalers, and retailers. Each seeks to maximise its own profits, and there is little control over the other members and no formal means for assigning roles and resolving conflict."</em></p>
-</blockquote>
-<p>Plain language: nobody is in charge. Every member optimises for itself. Conflict is constant.</p>
-<h4 id="7b-vertical-marketing-system-vms">7b. Vertical Marketing System (VMS) <span class="citation"><span class="citation">[Slides 15-18 — s.15 intro + 3 types; s.16 Corporate; s.17 Contractual + franchise; s.18 Administered]</span></span></h4>
-<blockquote>
-<p><em>"VMSs provide channel leadership and consist of producers, wholesalers, and retailers acting as a unified system."</em> <span class="citation"><span class="citation">[Slide 15 — verbatim]</span></span></p>
-</blockquote>
-<p>Plain language: somebody IS in charge. The channel acts as one team. Comes in <strong>three forms</strong> — Dr. Alaa emphasised this triplet (<em>"VMS comes in three forms"</em> <span class="citation"><span class="citation">[Lec 6 @ 1:05:12]</span></span>):</p>
+<p>Same pattern in two different industries: <strong>the closer the intermediary sits to the final customer, the more inventory and spoilage risk it absorbs</strong> — and that absorbed risk is a real part of what the producer "buys" by letting the intermediary into the channel in the first place.</p>
+
+<h3 id="channel-levels-and-flows">Channel levels and what flows along them <span class="citation">[Slides 11–12]</span></h3>
+<p>A <strong>channel level</strong> is just a layer of intermediaries. Count only the middlemen — the producer and the final customer are never counted as levels. Zero levels = the producer hands the product straight to the customer; one level = one middleman in between; and so on.</p>
+<p>Consumer channels (the textbook's Figure 14.2, panel A):</p>
 <table>
-<thead>
-<tr>
-<th>#</th>
-<th>Type</th>
-<th>Mechanism of control</th>
-<th>Examples</th>
-</tr>
-</thead>
+<thead><tr><th>Channel</th><th>Path</th><th>Levels</th><th>Typical example</th></tr></thead>
 <tbody>
-<tr>
-<td>1</td>
-<td><strong>Corporate VMS</strong></td>
-<td><em>Single ownership.</em> One company owns successive stages of production AND distribution.</td>
-<td>Apple owns its retail stores; Zara owns its retail chain; an oil major owning refineries + petrol stations. <em>(Apple/Zara examples are textbook-canonical, not on Slide 16.)</em> <strong>Egyptian examples Dr. Alaa cited: Diina Farms (دينا فارمز)</strong> — owns the farm AND the retail outlets selling its dairy/poultry <span class="citation"><span class="citation">[Lec 6 @ 1:06:10 — verbatim Arabic: <em>"زارع دينا"</em>]</span></span>. <strong>Al-Asdeqaa (الأصدقاء)</strong> — similar farm-to-shelf ownership integration <span class="citation"><span class="citation">[Lec 6 @ ~19:30, source: NotebookLM transcript — no Whisper hit]</span></span>.</td>
-</tr>
-<tr>
-<td>2</td>
-<td><strong>Contractual VMS</strong></td>
-<td>Per Slide 17 verbatim: <em>"consists of independent firms at different levels of production and distribution who join together through contracts to obtain more economies or sales impact than each could achieve alone. The most common form is the franchise organization."</em> Three sub-forms named on the slide: <strong>(1) Manufacturer-sponsored retailer franchise system</strong>, <strong>(2) Manufacturer-sponsored wholesaler franchise system</strong>, <strong>(3) Service firm-sponsored retailer franchise system</strong>. <em>Textbook-canonical examples (NOT on Slide 17 — provided for memory only): Ford dealerships (sub-form 1), Coca-Cola bottling (sub-form 2), McDonald's / KFC (sub-form 3).</em></td>
-<td>McDonald's, KFC, Cilantro, Carrefour's franchise branches in some markets; <strong>Ibn Sina (ابن سينا)</strong> — major pharmaceutical distributor; its contracts with hundreds of pharmacies create unified distribution power. <span class="citation"><span class="citation">[Lec 6 @ ~20:00, source: NotebookLM transcript]</span></span> <strong>Orange / Vodafone service points</strong> (مراكز خدمة عملاء أورنج وفودافون) — service-firm-sponsored retailer franchise. <span class="citation"><span class="citation">[Lec 6 @ ~20:30, source: NotebookLM transcript]</span></span> Plus the <em>"صيدلية خليل"</em> small-pharmacy chain affiliation. <span class="citation"><span class="citation">[Slide 17; Lec 6 @ 1:08:38–1:13:09]</span></span></td>
-</tr>
-<tr>
-<td>3</td>
-<td><strong>Administered VMS</strong></td>
-<td>Per Slide 18 verbatim: <em>"has a few dominant channel members without common ownership. Leadership comes from size and power."</em> A small number of dominant members (not necessarily one) lead via size + power rather than ownership or contract.</td>
-<td><strong>Procter &amp; Gamble dictating shelf space and pricing to small supermarkets.</strong> Carrefour as a giant retailer "managing" smaller suppliers' terms — until they hit an Almarai. <span class="citation"><span class="citation">[Slide 18; Lec 6 @ 1:14:46–1:15:46]</span></span></td>
-</tr>
+<tr><td>1</td><td>Producer → Consumer</td><td><strong>0 (direct)</strong></td><td>Avon door-to-door, Dell direct, Apple's own stores, a farmer selling at the gate</td></tr>
+<tr><td>2</td><td>Producer → Retailer → Consumer</td><td><strong>1</strong></td><td>A clothing brand selling only through department stores</td></tr>
+<tr><td>3</td><td>Producer → Wholesaler → Retailer → Consumer</td><td><strong>2</strong></td><td>Almarai → wholesaler → small grocer → you</td></tr>
 </tbody>
 </table>
-<h4 id="7c-horizontal-marketing-system-hms-citationstartslide-19citationend">7c. Horizontal Marketing System (HMS) <span class="citation"><span class="citation">[Slide 19]</span></span></h4>
-<blockquote>
-<p><em>"Two or more companies at one level join together to follow a new marketing opportunity. Companies combine financial, production, or marketing resources to accomplish more than any one company could alone."</em></p>
-</blockquote>
-<p>Plain language: peer firms at the <em>same</em> channel level team up. Two airlines code-sharing routes. Two banks sharing ATMs. Two grocery chains co-buying a category to get a volume discount.</p>
-<h4 id="7d-multichannel-hybrid-distribution-citationstartslides-2021-slide-21-figure-144citationend">7d. Multichannel / hybrid distribution <span class="citation"><span class="citation">[Slides 20–21; Slide 21 — Figure 14.4]</span></span></h4>
-<blockquote>
-<p><em>"A single firm sets up two or more marketing channels to reach one or more customer segments."</em></p>
-</blockquote>
-<p>Plain language: the producer uses <strong>several channels in parallel</strong> to reach different customer segments. Figure 14.4 (slide 21) is the canonical picture — a Producer pushing through:
-- a <strong>direct channel</strong> (catalogues, telephone, internet) → Consumer segment 1
-- a <strong>retailer channel</strong> → Consumer segment 2
-- a <strong>distributor → dealer</strong> channel → Business segment 1
-- a <strong>sales force</strong> → Business segment 2 <em>(Slide 21 labels this arrow simply "Sales force")</em></p>
-<p>So the same producer simultaneously sells direct online to small consumers AND through retailers to consumer households AND through distributors to small businesses AND via key-account sales reps to big enterprises. <span class="citation"><span class="citation">[Slide 21 — Figure 14.4]</span></span></p>
-<p><strong>Dr. Alaa's working example — HP / Dell</strong>: a single tech producer reaches segments through four parallel paths <span class="citation"><span class="citation">[Lec 6 @ ~40:00, source: NotebookLM transcript]</span></span>:
-- <strong>Direct sales (web / sales force)</strong> → tech-savvy individuals + large business users that need bulk customised orders.
-- <strong>Retailers</strong> — <strong>B.Tech</strong> (Egyptian electronics retail chain) and <strong>Carrefour</strong> → general individual consumers who want physical trial and immediate possession.
-- <strong>Distributors / dealers</strong> → smaller specialised businesses or geographically remote markets.
-- <strong>Key-account direct sales reps</strong> → enterprise customers needing tailored configuration.</p>
-<p>One producer, four simultaneous channels — each one matched to a specific segment's buying behavior. This is the textbook definition of hybrid distribution.</p>
-<h3 id="8-channel-design-decisions-outline-only-section-124-not-unpacked-in-the-deck">8. Channel design decisions <em>(outline only — section 12.4, not unpacked in the deck)</em></h3>
-<p>The textbook process: (1) analyse consumer needs, (2) set channel objectives, (3) identify major alternatives (types of intermediaries; number of intermediaries — <strong>intensive / selective / exclusive distribution</strong>; responsibilities of channel members), (4) evaluate alternatives (economic / control / adaptive criteria). The three "number of intermediaries" strategies are worth memorising even though they were not on this deck — they are classic test-bank material:
-- <strong>Intensive distribution</strong> — stock the product in as many outlets as possible (Coca-Cola, candy, cigarettes — "available everywhere").
-- <strong>Selective distribution</strong> — use more than one but fewer than all intermediaries (mid-tier consumer electronics, mid-tier appliances).
-- <strong>Exclusive distribution</strong> — only one intermediary per territory carries the brand (luxury watches, prestige cars).</p>
-<h3 id="9-channel-management-decisions-outline-only-section-125">9. Channel management decisions <em>(outline only — section 12.5)</em></h3>
-<p>Textbook stages: (1) selecting channel members, (2) managing and motivating them, (3) periodically evaluating their performance.</p>
-<h3 id="10-marketing-logistics-supply-chain-management-outline-only-section-126">10. Marketing logistics &amp; supply-chain management <em>(outline only — section 12.6)</em></h3>
-<blockquote>
-<p>Textbook definition: <em>physical distribution / logistics = planning, implementing, and controlling the physical flow of materials, final goods, and related information from points of origin to points of consumption to meet customer requirements at a profit.</em>
-Major logistics functions: warehousing, inventory management, transportation, and logistics information. <strong>Third-party logistics (3PL)</strong> = outsourcing logistics to specialists (e.g., DHL, Aramex, <strong>Maersk Line</strong> in maritime shipping).</p>
-</blockquote>
-<h3 id="11-retailing-wholesaling-agents-outline-only-sections-1271210">11. Retailing, wholesaling, agents <em>(outline only — sections 12.7–12.10)</em></h3>
-<p>Not unpacked on this deck. The two definitions to keep in your back pocket:
-- <strong>Retailer</strong> = an intermediary that sells primarily to <strong>final consumers</strong> for personal, non-business use.
-- <strong>Wholesaler</strong> = an intermediary that sells primarily to <strong>other businesses</strong> for resale or business use.
-Dr. Alaa's class example: in a popular-area supermarket, <em>"he sells at wholesale price anyway — when the supermarket buys at 450 EGP… they sell the item at a wholesale price"</em> — illustrating how the retailer/wholesaler distinction blurs in everyday Egyptian markets. <span class="citation"><span class="citation">[Lec 6 @ 40:36–41:18]</span></span></p>
-<h3 id="12-choosing-channel-length-the-three-deciding-factors">12. Choosing channel length — the three deciding factors</h3>
-<p>How does a manager actually decide whether to use a 0-level, 1-level, 2-level, or 3-level channel? Dr. Alaa wrapped the lecture by naming <strong>three explicit factors</strong> that drive that choice <span class="citation"><span class="citation">[Lec 6 @ ~50:00, source: NotebookLM transcript]</span></span>:</p>
+<p>Business channels (panel B): same idea, but with industrial intermediaries:</p>
+<table>
+<thead><tr><th>Channel</th><th>Path</th><th>Levels</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Producer → Business customer</td><td>0</td></tr>
+<tr><td>2</td><td>Producer → Business distributor → Business customer</td><td>1</td></tr>
+<tr><td>3</td><td>Producer → Manufacturer's rep / sales branch → Business distributor → Business customer</td><td>2</td></tr>
+</tbody>
+</table>
+<p class="muted-note">Slide 11 shows only the boxes for these paths; the "typical example" column is textbook-standard, not on the slide itself. <span class="citation">[Slide 11 — Figure 14.2]</span></p>
+
+<h4>The five things that flow along a channel</h4>
+<p>If you imagine a channel as a pipeline, five different "streams" move through it at once — not just the product:</p>
+<ul>
+<li><strong>Physical flow</strong> — the actual product moves downstream toward the customer (trucks, ships, shelves).</li>
+<li><strong>Flow of ownership</strong> — legal title transfers down the chain. Producer "owned" the beans; Carrefour now owns them; the customer now owns them.</li>
+<li><strong>Payment flow</strong> — money moves the <em>other</em> direction, upstream. Customer pays Carrefour, Carrefour pays the wholesaler, wholesaler pays BrewHaus.</li>
+<li><strong>Information flow</strong> — moves in <em>both</em> directions: market intelligence and orders go up the chain, product availability and promo info come back down.</li>
+<li><strong>Promotion flow</strong> — persuasive messaging moves downstream toward the buyer (catalogues, in-store displays, flyers).</li>
+</ul>
+<p class="muted-note"><span class="citation">[Slide 12]</span></p>
+
+<h4>How do you pick how many levels to use?</h4>
+<p>Two rules that drive most of the answer:</p>
+<ul>
+<li><strong>Shelf life.</strong> The shorter the perishability window, the shorter the channel must be. Fresh milk and fresh bread can't tolerate a long chain of middlemen — they spoil. UHT milk and canned goods can. <span class="citation">[Lec 6 @ 50:30]</span></li>
+<li><strong>Unit value.</strong> High-value, low-volume items (luxury watches, custom industrial equipment) prefer <em>shorter</em> channels — the producer wants control and direct contact. Low-value, high-volume items (sweets, soft drinks) tolerate <em>longer</em> channels — reach matters more than control. <span class="citation">[Lec 6 @ 51:00]</span></li>
+</ul>
+<h3 id="channel-conflict">Channel behaviour — why conflict is built in <span class="citation">[Slide 13]</span></h3>
+<p>A channel <em>looks</em> like a partnership: every member plays a specialised role for the common good of moving product to customer. But each member is also an independent business chasing its own profit — which means <strong>channel conflict</strong> is not a sign of dysfunction. It's built into the structure. The textbook definition is simply <em>"disagreement among channel members over goals, roles, and rewards."</em> <span class="citation">[Slide 13]</span></p>
+<p>Conflict comes in two flavours, depending on <em>where</em> in the chain the fight breaks out:</p>
+<ul>
+<li><strong>Horizontal conflict</strong> — between firms at the <em>same</em> level. Two retailers fighting over the same neighbourhood. Two wholesalers chasing the same big retailer's business.</li>
+<li><strong>Vertical conflict</strong> — between firms at <em>different</em> levels. Producer vs. retailer. Wholesaler vs. producer. This is the more dangerous kind because it can break the whole chain.</li>
+</ul>
+
+<h4 id="almarai-vs-carrefour">The case to remember: Almarai vs Carrefour (Saudi Arabia)</h4>
+<p>Dr. Alaa spent about three minutes on this case in class — it is the canonical vertical-conflict example for the exam. The setting is <strong>Saudi Arabia, not Egypt</strong> (worth noting because the question can swap the country). For a long stretch, you could walk into any Carrefour in Saudi Arabia and find <em>no Almarai products at all</em> — and Almarai is one of the biggest dairy producers in the region. How did one of the largest producers end up boycotted by one of the largest retailers?</p>
+<p>Two different kinds of power collided. <strong>Carrefour's power came from market access</strong> — a giant retail footprint, control of shelf space, the ability to dictate terms to suppliers (shelf fees, payment timing, margin demands). <strong>Almarai's power came from its brand</strong> — Saudi consumers walked into stores asking for Almarai by name, so Almarai didn't need Carrefour as much as a no-name supplier would. When Carrefour tried to dictate terms, Almarai pushed back: <em>"we're the big company here — we should be dictating terms, not you."</em> Neither side blinked. Almarai walked out. All Carrefour branches stopped carrying Almarai products. Almarai survived because every other small and mid-sized retailer in Saudi Arabia still wanted them — they just swapped one large channel partner for many smaller ones.</p>
+<p>The takeaway for exam purposes: <strong>channel power can come from either side</strong> — from the retailer's market access or from the producer's brand pull. When both sides have real power, vertical conflict can fracture the whole channel relationship.</p>
+<details class="deck-quotes">
+<summary>Lecture source quotes for the Almarai case</summary>
+<ul>
+<li>Setting (Saudi Arabia): "عندك في كراه السعودية… في السعودية في أي مدينة مش هتلاقي المراعي في كارفور" <span class="citation">[Lec 6 @ 59:11]</span></li>
+<li>Almarai's stance: "المراعي شايف انها شركة كبيرة وانفعش كارفور يفرض عليها شركة… انا المفروض افرض عليها شركة" <span class="citation">[Lec 6 @ 1:00:30]</span></li>
+<li>Outcome: "All Carrefour branches no longer carry Almarai products." <span class="citation">[Lec 6 @ 1:00:44]</span></li>
+<li>Full case run: <span class="citation">[Lec 6 @ 59:53–1:01:13; mirror Lec_6_B @ 57:02–1:01:14]</span></li>
+</ul>
+</details>
+<p>Dr. Alaa also touched on related angles: small Egyptian café chains fighting against the dominance of big chains (Cilantro vs the giants), and small pharmacies joining the <em>صيدلية خليل / Khalil pharmacy</em> chain to access shared brand, IT systems, and bulk-buying power. Same underlying force in both: when one side of the channel has overwhelming power, the smaller side either submits, allies into a bigger group, or breaks away. <span class="citation">[Lec 6 @ 1:01:30]</span></p>
+<h3 id="how-channels-are-organised">How channels are organised <span class="citation">[Slides 14–21]</span></h3>
+<p>If conflict is built into channels, how do real companies manage it? By organising the channel in one of four basic shapes. Each shape is really an answer to a simple question: <em>how tightly should the channel be coordinated?</em></p>
+
+<h4 id="conventional-channel">1. The conventional channel — nobody in charge <span class="citation">[Slide 14]</span></h4>
+<p>The default arrangement: a producer, one or more wholesalers, and one or more retailers, each one an independent business chasing its own profit. There is no one in charge, no formal way to assign roles, and no agreed mechanism for resolving disputes. The slide describes it as a chain where <em>"each seeks to maximise its own profits"</em> with little control over the other members. Conflict here is constant, because nothing in the structure dampens it. Most small-time distribution still looks like this.</p>
+
+<h4 id="vms">2. Vertical Marketing System (VMS) — somebody IS in charge <span class="citation">[Slides 15–18]</span></h4>
+<p>A VMS is a channel where the levels stop behaving like independent fiefdoms and start acting like a single coordinated team. The deck's one-line definition: <em>VMSs "provide channel leadership and consist of producers, wholesalers, and retailers acting as a unified system."</em> Dr. Alaa emphasised that a VMS always comes in <strong>one of exactly three forms</strong>, and the difference between them is <em>how</em> that unified control is achieved. <span class="citation">[Slide 15 · Lec 6 @ 1:05:12]</span></p>
+
+<h5>2a. Corporate VMS — control by single ownership <span class="citation">[Slide 16]</span></h5>
+<p>One company simply owns successive stages of production and distribution. There's no negotiation, no contract — the same parent company gives the orders all the way down. Apple owning its retail stores, Zara owning its retail chain, and an oil major owning both its refineries and its petrol stations are the textbook examples. Dr. Alaa's Egyptian anchors: <strong>Diina Farms (دينا فارمز)</strong> owns both its farms and the retail outlets that sell its dairy and poultry, and <strong>Al-Asdeqaa (الأصدقاء)</strong> runs the same farm-to-shelf integrated model. <span class="citation">[Lec 6 @ 1:06:10]</span></p>
+
+<h5>2b. Contractual VMS — control by binding contract <span class="citation">[Slide 17]</span></h5>
+<p>Independent firms at different levels stay independent on paper but tie themselves together with contracts to act as one system. The most common form by far is the <strong>franchise</strong>, and the deck names three sub-forms of franchise:</p>
 <ol>
-<li><strong>Perishability</strong> — physical shelf-life dictates speed. <strong>Fresh milk</strong> requires a <em>direct, short channel</em> (producer → retailer → consumer, within a day) because spoilage risk dominates. <strong>UHT milk</strong> (six-month shelf life) tolerates a <em>longer, more efficient channel</em> with wholesalers in the middle because the time gap is not destructive. Same logic for fresh vegetables/fruit vs canned goods, fresh bread vs long-life biscuits.</li>
-<li><strong>Flow of Ownership (margin economics)</strong> — each intermediary added to the channel takes a margin. The manager must balance that margin cost against the value-add the intermediary brings (reach, expertise, financing, risk-absorption). If the intermediary's service is worth less than its margin, cut it out and go shorter; if its services are worth <em>more</em> than its margin, keep it.</li>
-<li><strong>Efficiency (bridging time + place gaps)</strong> — the channel exists to span the gap between <em>where/when the product is made</em> and <em>where/when the customer wants it</em>. The longer that gap (geographic distance, mismatched timing), the more channel layers it takes to close it efficiently. A channel of 0 levels works when producer = customer in time and place; longer channels become rational the bigger that separation grows.</li>
+<li><strong>Manufacturer-sponsored retailer franchise</strong> — a producer franchises retailers to sell its product directly. <em>Classic textbook example:</em> Ford dealerships.</li>
+<li><strong>Manufacturer-sponsored wholesaler franchise</strong> — a producer franchises wholesalers/bottlers to handle distribution. <em>Classic textbook example:</em> Coca-Cola bottlers.</li>
+<li><strong>Service-firm-sponsored retailer franchise</strong> — a service brand franchises retail outlets to deliver the service. <em>Classic textbook examples:</em> McDonald's, KFC.</li>
 </ol>
-<p>These three sit inside the broader textbook decision: every additional level <em>adds reach but adds cost and weakens control</em>. Direct = max control, max cost; long = max reach, min control. The manager's job is matching channel length to <strong>product characteristics + customer needs + cost structure</strong>.</p>
+<p>Dr. Alaa's local anchors: McDonald's, KFC and Cilantro for service-firm franchising; <strong>Ibn Sina (ابن سينا)</strong>, a major pharmaceutical distributor whose contracts with hundreds of pharmacies create a unified national distribution force; <strong>Orange / Vodafone customer-service points</strong> (مراكز خدمة عملاء), a textbook case of service-firm-sponsored retailer franchising; and the <em>صيدلية خليل (Khalil pharmacy)</em> small-pharmacy chain affiliation. <span class="citation">[Lec 6 @ 1:08:38–1:13:09]</span></p>
+
+<h5>2c. Administered VMS — control by sheer size and power <span class="citation">[Slide 18]</span></h5>
+<p>No common ownership, no contract — just one (or a few) dominant member(s) with enough size to dictate terms to everyone else. The classic example: <strong>Procter &amp; Gamble</strong>, large enough to tell small supermarkets where to put its products on the shelf and at what price. Carrefour plays this role with most of its smaller suppliers — right up until it runs into someone its own size (Almarai), at which point the "administered" model breaks. <span class="citation">[Lec 6 @ 1:14:46]</span></p>
+
+<details class="deck-quotes">
+<summary>Verbatim slide wording for the three VMS types</summary>
+<ul>
+<li><strong>Slide 15 (VMS overall):</strong> "VMSs provide channel leadership and consist of producers, wholesalers, and retailers acting as a unified system."</li>
+<li><strong>Slide 17 (Contractual):</strong> "consists of independent firms at different levels of production and distribution who join together through contracts to obtain more economies or sales impact than each could achieve alone. The most common form is the franchise organization."</li>
+<li><strong>Slide 18 (Administered):</strong> "has a few dominant channel members without common ownership. Leadership comes from size and power."</li>
+</ul>
+</details>
+
+<h4 id="hms">3. Horizontal Marketing System (HMS) — peers teaming up <span class="citation">[Slide 19]</span></h4>
+<p>Same level of the channel, different companies, joining forces. Two airlines code-sharing routes. Two banks sharing ATMs. Two grocery chains co-buying a product category to extract a volume discount the size of which neither could earn on their own. The point is opportunity-driven cooperation between firms that would otherwise be competitors or non-overlapping peers — pooling financial, production, or marketing resources to chase something bigger than either could grab alone.</p>
+
+<h4 id="multichannel">4. Multichannel / hybrid distribution — many channels, one producer <span class="citation">[Slides 20–21]</span></h4>
+<p>This is the most modern arrangement and the one most large producers actually run today: a single firm operates <strong>several channels in parallel</strong>, each one matched to a different customer segment. The textbook picture (Figure 14.4 on Slide 21) shows a single producer feeding four channels at once:</p>
+<ul>
+<li>A <strong>direct channel</strong> (catalogues, telephone, internet, own website) → Consumer segment 1</li>
+<li>A <strong>retailer channel</strong> → Consumer segment 2</li>
+<li>A <strong>distributor → dealer</strong> channel → Business segment 1</li>
+<li>A <strong>direct sales-force</strong> channel → Business segment 2</li>
+</ul>
+<p>Dr. Alaa's working example was an HP/Dell-style tech producer in Egypt, running four parallel paths at once: <strong>direct web/sales-force</strong> for tech-savvy individuals and large enterprise buyers; <strong>retailers like B.Tech and Carrefour</strong> for general consumers who want to touch the product before they buy; <strong>distributors and dealers</strong> for smaller specialised businesses or remote regions; and <strong>key-account direct sales reps</strong> for enterprise customers needing tailored configurations. One producer, four simultaneous channels — each one tuned to how its segment likes to buy. That match — channel shape to buying behaviour — is the textbook definition of hybrid distribution. <span class="citation">[Slide 21 · Lec 6 @ ~40:00]</span></p>
+<h3 id="choosing-channel-length">Choosing channel length — the three deciding factors</h3>
+<p>So how does a manager actually decide between a 0-level, 1-level, 2-level, or 3-level channel? Dr. Alaa closed the lecture with three explicit factors that drive that choice: <span class="citation">[Lec 6 @ ~50:00]</span></p>
+<ol>
+<li><strong>Perishability.</strong> Shelf life dictates speed. Fresh milk needs a direct, short channel — produce today, sell tomorrow — because spoilage kills the product. UHT milk, with a six-month shelf life, tolerates a longer chain through wholesalers because time isn't destructive. Same logic for fresh fruit vs canned, fresh bread vs long-life biscuits.</li>
+<li><strong>Margin economics (flow of ownership).</strong> Every intermediary takes a cut. The manager has to weigh that cut against what the intermediary brings — reach, expertise, financing, risk-absorption. If a middleman's service is worth less than the margin they take, cut them out and go shorter. If their service is worth <em>more</em> than the margin, keep them.</li>
+<li><strong>Time-and-place efficiency.</strong> The channel exists to close the gap between where/when the product is made and where/when the customer wants it. The bigger that gap (longer distances, mismatched timing), the more channel layers make sense to close it. Producer next to customer = 0 levels works fine; producer far from customer = longer channels become rational.</li>
+</ol>
+<p>Underneath these three sits the general trade-off: every additional level <em>adds reach but adds cost and weakens control</em>. Direct = maximum control, maximum cost. Long = maximum reach, minimum control. The manager's job is matching channel length to product characteristics, customer needs, and cost structure.</p>
+
+<details class="deck-quotes" style="margin-top: 18px;">
+<summary>Textbook sections in the deck outline but not unpacked in class (open for completeness)</summary>
+<p><em>Slides 2–3 list these sections in the Topic Outline, but Dr. Alaa did not unpack them in class. They are included here as exam-relevant memory material in case a question reaches into the canonical Kotler content. Source: textbook standard, not Slide-cited.</em></p>
+
+<h5>Channel design decisions (textbook §12.4)</h5>
+<p>The textbook process: (1) analyse consumer needs; (2) set channel objectives; (3) identify major alternatives — types of intermediaries, how many, what responsibilities each gets; (4) evaluate alternatives against three criteria — <em>economic</em> (cost vs return), <em>control</em> (who calls the shots), <em>adaptive</em> (can the arrangement change later). The "how many intermediaries" sub-decision splits into three exam-classic strategies:</p>
+<ul>
+<li><strong>Intensive distribution</strong> — stock the product in as many outlets as possible. Coca-Cola, candy, cigarettes: available everywhere.</li>
+<li><strong>Selective distribution</strong> — use more than one but fewer than all intermediaries. Mid-tier consumer electronics, mid-tier appliances.</li>
+<li><strong>Exclusive distribution</strong> — only one intermediary per territory. Luxury watches, prestige cars.</li>
+</ul>
+
+<h5>Channel management decisions (textbook §12.5)</h5>
+<p>Three stages: (1) select channel members, (2) manage and motivate them, (3) periodically evaluate their performance.</p>
+
+<h5>Marketing logistics &amp; supply-chain management (textbook §12.6)</h5>
+<p>Textbook definition: <em>physical distribution / logistics</em> = planning, implementing, and controlling the physical flow of materials, finished goods, and related information from origin to consumption to meet customer requirements at a profit. Major functions: warehousing, inventory management, transportation, logistics information. <strong>Third-party logistics (3PL)</strong> means outsourcing logistics to specialists — DHL, Aramex, and (the one most likely to show up on the exam) <strong>Maersk Line</strong> in maritime shipping.</p>
+
+<h5>Retailing, wholesaling, agents (textbook §§12.7–12.10)</h5>
+<ul>
+<li><strong>Retailer</strong> = an intermediary that sells primarily to final consumers for personal, non-business use.</li>
+<li><strong>Wholesaler</strong> = an intermediary that sells primarily to other businesses, for resale or business use.</li>
+</ul>
+<p>Dr. Alaa's local nuance: in a popular-area Egyptian supermarket, the distinction blurs. A supermarket that buys at 450 EGP and resells "at wholesale price anyway" is acting like a wholesaler even though structurally it's a retailer — Egyptian market behaviour bends the textbook line. <span class="citation">[Lec 6 @ 40:36]</span></p>
+</details>
 <hr>
-<h2 id="dr-alaas-in-class-examples-for-ch14-quick-reference">Dr. Alaa's in-class examples for Ch.14 — quick reference</h2>
+<details class="deck-quotes">
+<summary>Dr. Alaa's in-class examples — full 19-row reference table (open to expand)</summary>
 <table>
 <thead>
 <tr>
@@ -4490,6 +4508,7 @@ Dr. Alaa's class example: in a popular-area supermarket, <em>"he sells at wholes
 </tr>
 </tbody>
 </table>
+</details>
 <hr>
 <h2 id="common-confusions-key-distinctions">Common confusions &amp; key distinctions</h2>
 <table>

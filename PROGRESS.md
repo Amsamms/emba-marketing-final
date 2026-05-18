@@ -10,6 +10,54 @@ Build a unified single-file HTML study portal covering all 7 chapters (3 from mi
 
 ## Current Status
 
+**Phase 11 (2026-05-19) — Ch.14 readability rewrite SHIPPED (pilot for "plain English wins" rule).** Ahmed flagged a real problem: the final portal reads far denser than the midterm portal even though both follow the same source-strict rule. Diagnosis (confirmed by Ahmed): the final was authored chunk-by-chunk via sub-agent forks under source-strict pressure, so every fork independently optimised for citation density and verbatim mirroring rather than for first-time-reader readability. Each chunk passes citation audit individually, but read end-to-end the chapter sounds like a textbook transcript glued together. The midterm was written in one continuous pass — different process, different voice.
+
+**Rule baked into the deck-to-portal skill** (`~/.claude/skills/deck-to-portal/SKILL.md`) before touching the portal: added a "Readability is the primary deliverable" priority section + a mandatory Step 8.5 end-to-end readability pass + a sub-agent voice-drift warning. The rule states explicitly: when verbatim-mirroring and reader-friendly explanation conflict, **explanation wins**; the slide-faithful layer exists to back the explanation, not the other way around. Reference voice = EMBA midterm portal, never the EMBA final's prior register.
+
+**What changed in Ch.14 only (zero impact on any other chapter):**
+
+- **Citation styling scoped to `#tab-ch14`** — citations now 0.68rem, light gray (#9aa3ad), italic, non-monospace, with `opacity: 0.75`. They sit at the end of sentences as true sidenotes instead of monospace bracket-tags that stop the eye. Nested `<span class="citation"><span class="citation">…</span></span>` cases inherit the new style. Other chapters keep the original monospace style.
+- **New `.deck-quotes details` styling** for collapsed verbatim quote blocks (▸/▾ summary arrow, muted text, smaller font).
+- **Coverage meta-note removed** from top of body (its content lives in the bottom slide-audit table).
+- **Entire body rewritten in tutor-voice prose, slide-by-slide coverage preserved.** Every concept now leads with plain English; Kotler verbatim quotes sit beneath as small evidence lines. Concrete anchors throughout (BrewHaus, Carrefour, fakihani, pharmacy, Almarai, Diina Farms, Ibn Sina, Orange/Vodafone service points, Khalil pharmacy chain, B.Tech, HP/Dell).
+- **§7 dense 4-column VMS table** replaced with 4 flowing prose sub-sections (`<h4>1. Conventional`, `<h4>2. VMS` with `<h5>2a/2b/2c`, `<h4>3. HMS`, `<h4>4. Multichannel`). Verbatim Slide 15/17/18 quotes pulled out of cells into a single collapsed `<details>` block.
+- **§6 Almarai-vs-Carrefour case** retold as flowing prose; 4 verbatim Arabic Whisper citations collapsed into a `<details>` block beneath ("Lecture source quotes for the Almarai case").
+- **§5 channel levels** — broken markdown tables (rendered as raw `|`-pipe text) converted to real HTML tables; 5-flows list got concrete one-line BrewHaus/Carrefour examples per flow.
+- **§8–§11 textbook outline-only sections** collapsed into single `<details>` block titled "Textbook sections in the deck outline but not unpacked in class (open for completeness)". Out of the read-through by default; auditable on demand.
+- **19-row "Dr. Alaa's in-class examples" reference table** wrapped in `<details>` — useful reference, not bulk on read-through.
+- **Common confusions table, exam relevance, predicted items, slide-coverage audit** left intact (already concise / already at the chapter tail).
+- **Slide coverage verified post-rewrite**: slides 4–21 (the meat of the 21-slide Ch.14 deck) all cited inline; slides 1–3 (title + topic outline) covered in the slide-audit table.
+
+**Verification step taken (per Step 8.5 of the updated skill)**: served portal at `localhost:8765`, navigated via Playwright MCP, extracted rendered text of `#tab-ch14`, read top-to-bottom as a first-time reader, and took a screenshot to confirm citations render as tiny gray italic sidenotes rather than monospace badges. Verdict: voice is now consistent throughout, reads like one tutor talking, no backtracking required. Minor open issues flagged for future polish: bland `<h2>Core concepts</h2>` divider (could be removed for cleaner flow), one orphan `[Slide 12]` citation paragraph after the 5-flows list, restaurant-product-vs-service tangent slightly off-topic for the channel-definition section, "how many levels" coverage overlap between two locations. Not blocking — chapter is shippable as-is.
+
+**Why other chapters were not touched**: Ahmed explicitly scoped this to Ch.14 only — pilot the rule on one chapter, confirm it reads right, then decide whether/which chapters to propagate to. The CSS overrides use `#tab-ch14` selectors so other tabs see no styling change. Friend's notes / other portals untouched.
+
+**Files modified this phase**: `portal/index.html` only (single-file artifact). `study_notes/*.md` not edited — per the "Edit index.html directly — never rebuild" rule in CLAUDE memory, the .md sources are out of sync and rebuilding from them would silently revert the readability fixes.
+
+---
+
+**Phase 10 (2026-05-17) — Printable exam pack SHIPPED (4 PDFs + 4 DOCXs, A4).** Ahmed asked for the exam questions as PDF + Word files ready for printing. Built `portal/build_exam_pdf.py` which parses `study_notes/exam_qbank.md` + `study_notes/exam_cases.md` and renders four print-ready documents at `Final preparation/exam_printables/`:
+
+| File | Pages | Pattern |
+|---|---|---|
+| `EMBA_Marketing_Final_Questions.docx` / `.pdf` | 28 | Categorised — chapter sub-headings visible (Ch.1a / Ch.1b / Ch.7 / Ch.8 / Ch.10 / Ch.11 / Ch.14) |
+| `EMBA_Marketing_Final_Answers.docx` / `.pdf` | 40 | Categorised answer key — model answers in green italic with slide/lec citations |
+| `EMBA_Marketing_Final_Questions_Shuffled.docx` / `.pdf` | ~28 | **Items shuffled across chapters, no chapter headings** — exam-realistic |
+| `EMBA_Marketing_Final_Answers_Shuffled.docx` / `.pdf` | ~40 | Matching answer key (same shuffle order — deterministic, seeded `20260517 + section letter`) |
+
+Contents (every file): Section A — 40 T/F • Section B — 32 MCQ (30 main + 2 calibration partial-misses) • Section C — 15 short-answer (4 blank dotted lines per Q in Questions file) • Section D — 10 essay (7 blank lines per Q) • Section E — Mock Final Exam paper (Alex Univ EMBA header, Dr. Alaa, 3 hrs, 80 marks: Q1 T/F×10, Q2 applied-STP × 5 products, Q3 two cases — Cilantro + Vodafone) • Section F — 4 extra adapted cases (Cilantro extended / Carrefour-vs-Almarai / Vodafone Youth-Churn / El-Cairo Footwear).
+
+**Build chain**: python-docx → libreoffice headless `--convert-to pdf`. A4 595×842 pt verified. Re-runnable any time via `venv/bin/python build_exam_pdf.py` — parsing is regex-driven over the same source `.md` files used to build the portal, so any future edit to `exam_qbank.md` / `exam_cases.md` flows through cleanly.
+
+**Decisions locked this session**:
+- Two pairs (categorised + shuffled), not one — Ahmed's reasoning: categorised for early revision (see which chapter a Q tests), shuffled for exam-realistic final practice (no chapter hint).
+- Questions-only and Answers-only as separate files (not combined per-item) — Ahmed wants real exam feel with blank dotted-lines to write on, then reveal the full answer key after.
+- Shuffle is deterministic (seeded) so Questions and Answers files line up — re-running the script regenerates the same shuffle.
+- Output folder lives OUTSIDE `portal/` at `Final preparation/exam_printables/` — keeps it separate from the HTML portal artifacts and from `study_notes/`.
+- **NOT pushed to git** — per Ahmed's standing rule "pushing is only for HTML files". Stays local under `\\wsl$\Ubuntu\...`. Saved as feedback memory `feedback_no_push_binaries.md`.
+
+---
+
 **Phase 9 (2026-05-16) — Plain English chapter explainer layer SHIPPED across all 7 chapters.** Trigger: Ahmed asked "why isn't the website talking simply like you do in chat?" Built a third pedagogical layer (separate from the slide-faithful + per-concept layers) — a single coherent end-to-end narrative at the top of every chapter, written in chat-style simple English, using ONE running example (`BrewHaus` coffee shop) that builds on itself across all 7 chapters so the whole 4P+STP+Strategy curriculum reads as one continuous mental model. Each chapter explainer is structured as 5–8 numbered concept blocks (`<h4>1. …</h4>`) plus a closing "How chapter X connects together" anchor paragraph forward-referencing the next chapter.
 
 **Implementation details (Phase 9):**
