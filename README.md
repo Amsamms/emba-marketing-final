@@ -6,6 +6,8 @@ A self-contained single-file HTML study portal covering all **7 chapters** of Ah
 
 📚 **Companion site (midterm)**: https://amsamms.github.io/emba-marketing-midterm/
 
+🧠 **Companion site (mind maps for phone revision)**: https://amsamms.github.io/emba-marketing-mindmaps/
+
 ## What's in the portal
 
 - **Home** — coverage map, how to use, exam shape

@@ -10,6 +10,22 @@ Build a unified single-file HTML study portal covering all 7 chapters (3 from mi
 
 ## Current Status
 
+**Phase 12 (2026-05-20) — Companion mind-map portal SHIPPED.** Ahmed asked for a "specific mind map for each chapter, something makes me remember everything with minimum effort, mobile first, new repo." Built as a separate site so it doesn't bloat the main portal and so it can be opened directly on the phone for fast revision before exam.
+
+- **Live**: https://amsamms.github.io/emba-marketing-mindmaps/
+- **Repo**: github.com/Amsamms/emba-marketing-mindmaps (public)
+- **Local**: `/home/amsamms/projects/EMBA/marketing/emba-marketing-mindmaps/`
+- **What's in it**: one HTML page per chapter (Ch.1a · 1b · 7 · 8 · 10 · 11 · 14), each rendering a real radial mind map via `markmap-autoloader@0.18` (CDN). Root + first-level branches expanded by default; tap to drill. Skeleton + one-line definitions / formulas / memorable counts per leaf (positioning-statement template, IIVP, M-A-D-A-S, 4Ps, break-even formula, etc.). No verbatim slide paragraphs — full content stays in this portal; the mind maps are memory hooks.
+- **Stack**: 7 chapter HTMLs + landing + 2 shared assets (`theme.css`, `mindmap.js`). Mobile-first viewport, light/dark toggle mirroring the main portal's `html[data-theme="dark"]` convention with localStorage persistence. CDN-loaded markmap libs only — zero local build step.
+- **Source of truth** = the corresponding chapter section of THIS portal (`Final preparation/portal/index.html`). When this portal changes, the mind map for that chapter must be updated (edit the inline markdown block inside the chapter's HTML directly — same "edit index.html directly — never rebuild" rule applies).
+- **Off-syllabus exclusion preserved**: only the 7 final-exam chapters covered. Ch.6 / Ch.9 / Ch.13 deliberately excluded (with a `<details>` note on the landing page reminding why).
+- **Gotcha worth recording** ([[project-emba-mindmap-portal]] memory): `markmap-autoloader@0.18` IGNORES the `data-markmap='{json}'` attribute pattern shown in older docs. Options must be passed as YAML frontmatter at the top of the markdown block (`---\nmarkmap:\n  initialExpandLevel: 2\n---`). Verified by reading the autoloader's CDN source — frontmatter is the only path that reaches `mm.setData()`. Lost ~10 min debugging this before catching it.
+- **Verification**: served locally on `localhost:8765`, navigated via Playwright MCP at iPhone-13 viewport (390×844). Confirmed: landing renders 7 cards, every chapter renders root + first-level branches readable on mobile, theme toggle swaps tokens and persists across reload, hint chip shows touch-gesture instructions on chapter load.
+- **Cross-links added in THIS portal** this session: footer mention + Home-tab "Mind maps" bullet linking to the new site. Both opened in a new tab so the user doesn't lose their place mid-revision.
+- **GitHub push gotcha noted**: `gh repo create --push` failed because `/usr/lib/git-core` was missing from the PATH inherited by `gh`'s shell-launched `git`. Workaround `PATH="/usr/lib/git-core:$PATH" git push -u origin main` after the repo was created. Worth remembering for any future `gh` calls from this WSL environment.
+
+---
+
 **Phase 11 (2026-05-19) — Ch.14 readability rewrite SHIPPED (pilot for "plain English wins" rule).** Ahmed flagged a real problem: the final portal reads far denser than the midterm portal even though both follow the same source-strict rule. Diagnosis (confirmed by Ahmed): the final was authored chunk-by-chunk via sub-agent forks under source-strict pressure, so every fork independently optimised for citation density and verbatim mirroring rather than for first-time-reader readability. Each chunk passes citation audit individually, but read end-to-end the chapter sounds like a textbook transcript glued together. The midterm was written in one continuous pass — different process, different voice.
 
 **Rule baked into the deck-to-portal skill** (`~/.claude/skills/deck-to-portal/SKILL.md`) before touching the portal: added a "Readability is the primary deliverable" priority section + a mandatory Step 8.5 end-to-end readability pass + a sub-agent voice-drift warning. The rule states explicitly: when verbatim-mirroring and reader-friendly explanation conflict, **explanation wins**; the slide-faithful layer exists to back the explanation, not the other way around. Reference voice = EMBA midterm portal, never the EMBA final's prior register.
